@@ -1232,8 +1232,18 @@ select {
   gap: 4px;
 }
 
-.footer-list strong {
+.site-footer .footer-list strong {
   color: var(--footer-text);
+}
+
+.partner-logo {
+  opacity: 0.9;
+  transition: opacity 180ms ease;
+}
+
+.partner-logo:hover,
+.partner-logo:focus-visible {
+  opacity: 1;
 }
 
 .footer-bottom {

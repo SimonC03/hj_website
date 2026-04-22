@@ -32,7 +32,7 @@ export const footerData = {
     email: "info@handelsjuristerna.se",
   } satisfies Office,
   partners: [
-    { name: "CMS Wistrand", logo: "/partners/CMS_W.png" },
+    { name: "CMS Wistrand", logo: "/partners/CMS_W.png", href: "https://cms.law/en/swe/" },
   ],
 };
 
@@ -166,21 +166,38 @@ export function SiteFooter() {
             <div className="site-footer-block">
               {footerData.partners.length > 0 ? (
                 <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                  {footerData.partners.map((partner) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      key={partner.name}
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      style={{ 
-                        height: "48px", 
-                        width: "auto", 
-                        objectFit: "contain",
-                        opacity: 0.9,
-                        filter: "brightness(0) invert(1)"
-                      }}
-                    />
-                  ))}
+                  {footerData.partners.map((partner) => {
+                    const img = (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        key={partner.name}
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        className="partner-logo"
+                        style={{ 
+                          height: "48px", 
+                          width: "auto", 
+                          objectFit: "contain",
+                          filter: "brightness(0) invert(1)"
+                        }}
+                      />
+                    );
+
+                    return partner.href ? (
+                      <a
+                        key={partner.name}
+                        href={partner.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Besök ${partner.name}`}
+                        style={{ display: "inline-block" }}
+                      >
+                        {img}
+                      </a>
+                    ) : (
+                      img
+                    );
+                  })}
                 </div>
               ) : (
                 <p className="site-footer-muted">
