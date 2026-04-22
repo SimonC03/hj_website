@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  firm,
   highlights,
   insights,
   offices,
@@ -15,22 +14,31 @@ export default function HomePage() {
   return (
     <>
       <section className="hero">
+        <video
+          aria-hidden="true"
+          autoPlay
+          className="hero-media"
+          loop
+          muted
+          playsInline
+        >
+          <source
+            src="https://www.mannheimerswartling.se/app/uploads/2026/02/MSA_Hemsida-Film_Vinter-2026_v2_WEB.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
-          <p className="eyebrow">Affärsjuridisk advokatbyrå</p>
-          <h1>Juridisk rådgivning för avgörande affärsbeslut.</h1>
-          <p>
-            {firm.displayName} hjälper bolag, ägare och ledningar att navigera
-            transaktioner, tvister och komplexa avtal med tydlig strategi och
-            senior närvaro.
+          <h1>
+            Sveriges största <br />
+            studentdrivna byrå
+          </h1>
+          <p className="preamble">
+            Som en av Nordens ledande advokatbyråer förenar vi juridisk
+            spetskompetens med <br className="desktop-break" />
+            strategisk affärsinsikt i vår rådgivning till klienter över hela
+            världen.
           </p>
-          <div className="hero-actions">
-            <Link className="button button-primary" href="/kontakt">
-              Kontakta oss
-            </Link>
-            <Link className="button button-secondary" href="/expertis">
-              Se vår expertis
-            </Link>
-          </div>
         </div>
       </section>
 
