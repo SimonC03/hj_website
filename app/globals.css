@@ -170,7 +170,10 @@ select {
 
 .hero {
   position: relative;
-  min-height: clamp(620px, 84svh, 780px);
+  height: 100vh;
+  min-height: 100vh;
+  height: 100svh;
+  min-height: 100svh;
   display: flex;
   align-items: flex-end;
   isolation: isolate;
@@ -182,6 +185,13 @@ select {
   background-position: center;
   background-size: cover;
   color: white;
+}
+
+@supports (height: 100dvh) {
+  .hero {
+    height: 100dvh;
+    min-height: 100dvh;
+  }
 }
 
 .hero-media,
@@ -759,7 +769,6 @@ select {
   }
 
   .hero {
-    min-height: 590px;
     padding: 108px 22px 42px;
   }
 
