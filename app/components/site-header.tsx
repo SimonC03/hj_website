@@ -59,17 +59,13 @@ const mainMenu: MenuItem[] = [
 
 function HeaderLogo({ className = "" }: { className?: string }) {
   return (
-    <span
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="logos/full-white.png"
+      alt={firm.displayName}
       className={`hj-header-logo ${className}`}
-      role="img"
-      aria-label={firm.displayName}
-    >
-      <span className="hj-wordmark-mark">HJ</span>
-      <span className="hj-wordmark-text">
-        <span>Handels</span>
-        <span>Juristerna</span>
-      </span>
-    </span>
+      style={{ objectFit: "contain", objectPosition: "left center" }}
+    />
   );
 }
 

@@ -27,26 +27,26 @@ export const footerData = {
   ],
   office: {
     city: "Göteborg",
-    address: ["Magasinsgatan 18 A", "411 18 Göteborg"],
-    phone: "+46 (0)10-179 78 00",
-    email: "vast@dinfirma.se",
+    address: ["Viktoriagatan 9", "411 25 Göteborg"],
+    phone: "031 – 20 27 20",
+    email: "info@handelsjuristerna.se",
   } satisfies Office,
-  partners: [] as string[],
+  partners: [
+    { name: "CMS Wistrand", logo: "/partners/CMS_W.png" },
+  ],
 };
 
 function FooterLogo() {
   return (
-    <svg
-      aria-label={`${footerData.brandName} Logotyp`}
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={`${footerData.brandName} Logotyp`}
       className="site-footer-logo"
-      height="88"
-      role="img"
-      viewBox="0 0 88 88"
-      width="88"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M85.775 0H60.85c-.606 0-1.173.242-1.577.645l-44.83 44.659a2.22 2.22 0 0 0-.647 1.572v23.901L0 84.522l3.156 3.143 13.797-13.744h23.992c.607 0 1.174-.242 1.578-.645l44.83-44.659A2.22 2.22 0 0 0 88 27.045V2.217C88 1.007 86.989 0 85.775 0M47.58 43.41h18.611L55.31 54.252H36.697zm4.45-4.434 10.884-10.842h18.611L70.643 38.976zM67.325 23.74 83.55 7.578V23.74zM18.247 47.803l43.535-43.37h18.612l-62.147 61.91zm21.768 21.684H21.403l10.884-10.842h18.611z" />
-    </svg>
+      height="120"
+      src="logos/emblem.png"
+      style={{ objectFit: "contain" }}
+      width="120"
+    />
   );
 }
 
@@ -165,11 +165,23 @@ export function SiteFooter() {
             <h2>Samarbetspartners</h2>
             <div className="site-footer-block">
               {footerData.partners.length > 0 ? (
-                <ul className="site-footer-list">
+                <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
                   {footerData.partners.map((partner) => (
-                    <li key={partner}>{partner}</li>
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={partner.name}
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      style={{ 
+                        height: "48px", 
+                        width: "auto", 
+                        objectFit: "contain",
+                        opacity: 0.9,
+                        filter: "brightness(0) invert(1)"
+                      }}
+                    />
                   ))}
-                </ul>
+                </div>
               ) : (
                 <p className="site-footer-muted">
                   Lägg till samarbetspartners här.

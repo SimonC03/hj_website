@@ -30,20 +30,52 @@ const testimonials = [
   },
 ];
 
+// Create an extended array to allow infinite looping.
+// We clone the testimonials array so we have enough items before and after.
+const extendedTestimonials = [
+  ...testimonials,
+  ...testimonials,
+  ...testimonials,
+];
+
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Start the index in the middle block to have clones on both sides
+  const [currentIndex, setCurrentIndex] = useState(testimonials.length);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const nextSlide = () => {
-    setCurrentIndex((previous) =>
-      previous === testimonials.length - 1 ? 0 : previous + 1,
-    );
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((previous) =>
-      previous === 0 ? testimonials.length - 1 : previous - 1,
-    );
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
   };
+
+  const handleTransitionEnd = () => {
+    setIsTransitioning(false);
+    
+    // Snap back to the center block without animation if we entered a cloned block
+    if (currentIndex < testimonials.length) {
+      setCurrentIndex(currentIndex + testimonials.length);
+    } else if (currentIndex >= testimonials.length * 2) {
+      setCurrentIndex(currentIndex - testimonials.length);
+    }
+  };
+
+  const handleDotClick = (index: number) => {
+    if (isTransitioning) return;
+    const targetIndex = index + testimonials.length;
+    if (targetIndex !== currentIndex) {
+      setIsTransitioning(true);
+      setCurrentIndex(targetIndex);
+    }
+  };
+
+  const activeDotIndex = currentIndex % testimonials.length;
 
   return (
     <section className="section testimonials-section">
@@ -76,40 +108,44 @@ export function Testimonials() {
         <div className="testimonial-viewport" aria-live="polite">
           <div
             className="testimonial-track"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            onTransitionEnd={handleTransitionEnd}
+            style={{ 
+              transform: `translateX(calc(${currentIndex} * -1 * var(--slide-advance)))`,
+              transition: isTransitioning ? "transform 500ms cubic-bezier(0.4, 0, 0.2, 1)" : "none"
+            }}
           >
-            {testimonials.map((item, index) => (
-              <article
-                aria-hidden={currentIndex !== index}
-                className="testimonial-slide"
-                key={item.author}
-              >
-                <div className="testimonial-card">
-                  <p className="testimonial-text">{item.text}</p>
+            {extendedTestimonials.map((item, index) => {
+              const isActive = index === currentIndex;
+              
+              return (
+                <article
+                  aria-hidden={!isActive}
+                  className="testimonial-slide"
+                  data-active={isActive}
+                  key={`${index}-${item.initials}`}
+                >
+                  <div className="testimonial-card">
+                    <p className="testimonial-text">{item.text}</p>
 
-                  <footer className="testimonial-person">
-                    <span className="testimonial-avatar" aria-hidden="true">
-                      {item.initials}
-                    </span>
-                    <div>
+                    <footer className="testimonial-person">
                       <cite>{item.author}</cite>
                       <span>{item.role}</span>
-                    </div>
-                  </footer>
-                </div>
-              </article>
-            ))}
+                    </footer>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
 
         <div className="testimonial-dots" aria-label="Välj omdöme">
           {testimonials.map((_, index) => (
             <button
-              aria-label={`Gå till omdöme ${index + 1}`}
-              aria-current={currentIndex === index}
-              className={currentIndex === index ? "active" : ""}
+              aria-label={`Gå till vy ${index + 1}`}
+              aria-current={activeDotIndex === index}
+              className={activeDotIndex === index ? "active" : ""}
               key={index}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => handleDotClick(index)}
               type="button"
             />
           ))}
