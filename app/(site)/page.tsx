@@ -1,16 +1,14 @@
+import Image from "next/image";
 import Link from "next/link";
+import { Testimonials } from "@/app/components/testimonials";
 import {
-  highlights,
-  insights,
+  clientLogos,
   offices,
-  people,
   practiceAreas,
   values,
 } from "@/app/data/site";
 
 export default function HomePage() {
-  const featuredAreas = practiceAreas.slice(0, 4);
-
   return (
     <>
       <section className="hero">
@@ -42,42 +40,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="stats-band" aria-label="Snabbfakta">
-        <div className="section-inner stats-grid">
-          {highlights.map((item) => (
-            <div className="stat" key={item.value}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-inner split">
-          <div>
-            <p className="eyebrow">Expertis</p>
-            <h2>Rådgivning byggd för affärer som rör sig snabbt.</h2>
-          </div>
-          <p className="section-lead">
-            Vi kombinerar specialiserad juridik med praktisk förståelse för
-            affären, organisationen och beslutsprocessen bakom varje uppdrag.
-          </p>
-        </div>
-
-        <div className="section-inner card-grid">
-          {featuredAreas.map((area) => (
-            <article className="practice-card" key={area.title}>
-              <span>{area.title}</span>
-              <p>{area.description}</p>
-              <Link href="/expertis" aria-label={`Läs mer om ${area.title}`}>
-                Läs mer
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="section section-navy">
         <div className="section-inner split">
           <div>
@@ -92,52 +54,77 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="section-inner section-heading">
-          <p className="eyebrow">Medarbetare</p>
-          <h2>Specialister som kan ta ansvar från första mötet.</h2>
+      <section className="section about-firm-section">
+        <div className="section-inner about-firm-content">
+          <h2>En ledande studentdriven byrå</h2>
+          <p>
+            Som Sveriges största studentdrivna juristbyrå bistår vi företag,
+            organisationer och privatpersoner med kvalificerad juridisk
+            rådgivning i viktiga och affärsnära frågor. Vår rådgivning
+            kännetecknas av juridisk precision, nyfikenhet och ett tydligt
+            fokus på klientens mål. Med stark akademisk förankring, praktisk
+            förståelse och ett nära samarbete med våra klienter utvecklar vi
+            lösningar som är genomtänkta, tillgängliga och hållbara över tid.
+          </p>
+          <footer>
+            <Link className="button button-primary" href="/om-oss">
+              Om byrån
+            </Link>
+          </footer>
         </div>
-        <div className="section-inner people-grid">
-          {people.map((person) => (
-            <article className="person-card" key={person.email}>
-              <div className="person-photo" aria-hidden="true">
-                {person.name
-                  .split(" ")
-                  .map((part) => part[0])
-                  .join("")}
-              </div>
-              <div>
-                <h3>{person.name}</h3>
-                <p>{person.role}</p>
-                <a href={`mailto:${person.email}`}>{person.email}</a>
-              </div>
-            </article>
+      </section>
+
+      <section className="client-marquee-section" aria-label="Tidigare kunder">
+        <div className="client-marquee" aria-label="Tidigare kunder">
+          {[0, 1].map((loop) => (
+            <div
+              className="client-marquee-track"
+              aria-hidden={loop === 1}
+              key={loop}
+            >
+              {clientLogos.map((logo) => (
+                <Image
+                  alt={loop === 0 ? logo.alt : ""}
+                  className="client-logo"
+                  height={80}
+                  key={`${loop}-${logo.name}`}
+                  src={logo.src}
+                  width={logo.width}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="section section-muted">
-        <div className="section-inner split">
-          <div>
-            <p className="eyebrow">Aktuellt</p>
-            <h2>Insikter från juridiken och affärslivet.</h2>
-          </div>
-          <Link className="text-link" href="/aktuellt">
-            Alla artiklar
-          </Link>
+      <section className="section expertise-section">
+        <div className="section-inner expertise-heading">
+          <p className="eyebrow">Expertisområden</p>
+          <h2>Våra tjänster</h2>
         </div>
-        <div className="section-inner insight-grid">
-          {insights.map((item) => (
-            <article className="insight-card" key={item.title}>
-              <p>
-                {item.type} · {item.date}
-              </p>
-              <h3>{item.title}</h3>
-              <Link href="/aktuellt">Läs mer</Link>
-            </article>
+
+        <div className="section-inner expertise-grid">
+          {practiceAreas.map((area, index) => (
+            <Link
+              className="expertise-item"
+              href="/expertis"
+              key={area.title}
+              aria-label={`Läs mer om ${area.title}`}
+            >
+              <span className="expertise-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3>{area.title}</h3>
+              <p>{area.description}</p>
+              <span className="expertise-read-more" aria-hidden="true">
+                Läs mer
+              </span>
+            </Link>
           ))}
         </div>
       </section>
+
+      <Testimonials />
 
       <section className="section contact-band">
         <div className="section-inner contact-grid">
