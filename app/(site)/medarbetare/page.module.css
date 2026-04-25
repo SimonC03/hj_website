@@ -117,7 +117,7 @@
 .previewName {
   margin: 0;
   font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: clamp(2.1rem, 2.2vw, 3rem);
+  font-size: clamp(2.0rem, 2.0vw, 2.5rem);
   font-weight: 600;
   line-height: 0.9;
   letter-spacing: -0.04em;
