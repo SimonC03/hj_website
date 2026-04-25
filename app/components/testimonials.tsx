@@ -1,48 +1,28 @@
-"use client";
-
-import { useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-
 const testimonials = [
   {
     text: "HJ kombinerade juridisk precision med en ovanligt tydlig förståelse för vår affär. Rådgivningen var konkret, snabb och lätt att agera på.",
     author: "Anna Lind",
     role: "VD, teknikbolag",
+    company: "Teknikbolag",
+    label: "Klient 01",
   },
   {
     text: "Vi fick ett tryggt bollplank genom hela processen. Teamet var strukturerat, kommersiellt och väldigt bra på att göra komplexa frågor begripliga.",
     author: "Johan Berg",
     role: "Grundare, tillväxtbolag",
+    company: "Tillväxtbolag",
+    label: "Klient 02",
   },
   {
     text: "Det som stack ut var noggrannheten och tempot. HJ hjälpte oss att landa rätt beslut utan att fastna i onödig juridisk friktion.",
     author: "Mira Ek",
     role: "COO, fastighetsbolag",
-  },
-  {
-    text: "Samarbetet kändes nära från första mötet. Vi fick raka rekommendationer, tydliga prioriteringar och dokument som fungerade i praktiken.",
-    author: "Oskar Holm",
-    role: "Styrelseordförande, investeringsbolag",
+    company: "Fastighetsbolag",
+    label: "Klient 03",
   },
 ];
 
-const formatIndex = (value: number) => String(value + 1).padStart(2, "0");
-const formatTotal = (value: number) => String(value).padStart(2, "0");
-
 export function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeTestimonial = testimonials[activeIndex];
-
-  const showPrevious = () => {
-    setActiveIndex((previous) =>
-      previous === 0 ? testimonials.length - 1 : previous - 1,
-    );
-  };
-
-  const showNext = () => {
-    setActiveIndex((previous) => (previous + 1) % testimonials.length);
-  };
-
   return (
     <section className="section testimonials-section">
       <div className="section-inner testimonials-container">
@@ -58,61 +38,24 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="testimonial-frame">
-          <article className="testimonial-card" aria-live="polite">
-            <span className="testimonial-mark" aria-hidden="true">
-              ”
-            </span>
-
-            <p className="testimonial-text">{activeTestimonial.text}</p>
-
-            <footer className="testimonial-person">
-              <div className="testimonial-person-copy">
-                <cite>{activeTestimonial.author}</cite>
-                <span>{activeTestimonial.role}</span>
+        <div className="testimonial-grid" aria-label="Klientomdömen">
+          {testimonials.map((testimonial) => (
+            <article className="testimonial-card" key={testimonial.author}>
+              <div className="testimonial-card-copy">
+                <div className="testimonial-meta">
+                  <span>{testimonial.label}</span>
+                  <span>{testimonial.company}</span>
+                </div>
+                <blockquote className="testimonial-text">
+                  {testimonial.text}
+                </blockquote>
               </div>
 
-              <div className="testimonial-pagination" aria-hidden="true">
-                <span>{formatIndex(activeIndex)}</span>
-                <span>/</span>
-                <span>{formatTotal(testimonials.length)}</span>
-              </div>
-            </footer>
-          </article>
-
-          <div className="testimonial-controls">
-            <button
-              aria-label="Föregående omdöme"
-              className="testimonial-arrow"
-              onClick={showPrevious}
-              type="button"
-            >
-              <ArrowLeft aria-hidden="true" size={18} strokeWidth={1.8} />
-            </button>
-            <button
-              aria-label="Nästa omdöme"
-              className="testimonial-arrow"
-              onClick={showNext}
-              type="button"
-            >
-              <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
-            </button>
-          </div>
-        </div>
-
-        <div className="testimonial-dots" aria-label="Välj omdöme">
-          {testimonials.map((item, index) => (
-            <button
-              aria-current={activeIndex === index}
-              aria-label={`Visa omdöme från ${item.author}`}
-              className={activeIndex === index ? "active" : ""}
-              key={item.author}
-              onClick={() => setActiveIndex(index)}
-              type="button"
-            >
-              <span>{item.author}</span>
-              <small>{item.role}</small>
-            </button>
+              <footer className="testimonial-person">
+                <cite>{testimonial.author}</cite>
+                <span>{testimonial.role}</span>
+              </footer>
+            </article>
           ))}
         </div>
       </div>

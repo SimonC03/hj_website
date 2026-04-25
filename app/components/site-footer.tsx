@@ -19,6 +19,7 @@ export const footerData = {
   },
   navItems: [
     { label: "Kompetensområden", href: "/kompetensomraden" },
+    { label: "Priser", href: "/priser" },
     { label: "Karriär", href: "/karriar" },
     { label: "Nyheter", href: "/nyheter" },
     { label: "Om oss", href: "/om-oss" },

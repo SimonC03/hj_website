@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Testimonials } from "@/app/components/testimonials";
-import {
-  clientLogos,
-  offices,
-  practiceAreas,
-  values,
-} from "@/app/data/site";
+import { ContactForm } from "@/app/components/contact-form";
+import { clientLogos, firm, practiceAreas, values } from "@/app/data/site";
 
 export default function HomePage() {
   return (
@@ -32,8 +27,9 @@ export default function HomePage() {
             studentdrivna byrå
           </h1>
           <p className="preamble">
-            Handelsjuristerna är en juristbyrå driven av juriststudenter från Handelshögskolan i Göteborg <br className="desktop-break" />
-            Vår vision är att vara den flexibla och okomplicerade byrån som gör juridiken lättillgänglig för såväl företag som privatpersoner.
+            Handelsjuristerna är en juristbyrå driven av juriststudenter från
+            Handelshögskolan i Göteborg <br className="desktop-break" />
+            Vi gör juridiken lättillgänglig för företag och privatpersoner.
           </p>
         </div>
       </section>
@@ -58,11 +54,8 @@ export default function HomePage() {
           <p>
             Som Sveriges största studentdrivna juristbyrå bistår vi företag,
             organisationer och privatpersoner med kvalificerad juridisk
-            rådgivning i viktiga och affärsnära frågor. Vår rådgivning
-            kännetecknas av juridisk precision, nyfikenhet och ett tydligt
-            fokus på klientens mål. Med stark akademisk förankring, praktisk
-            förståelse och ett nära samarbete med våra klienter utvecklar vi
-            lösningar som är genomtänkta, tillgängliga och hållbara över tid.
+            rådgivning. Med stark akademisk förankring och ett nära samarbete
+            utvecklar vi lösningar som är tydliga, tillgängliga och hållbara.
           </p>
           <footer>
             <Link className="button button-primary" href="/om-oss">
@@ -122,32 +115,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Testimonials />
-
       <section className="section contact-band">
         <div className="section-inner contact-grid">
           <div>
             <p className="eyebrow">Kontakt</p>
-            <h2>Låt oss diskutera nästa beslut innan det blir bråttom.</h2>
-            <p>
-              Beskriv ärendet kort så återkommer rätt jurist. Vid brådskande
-              ärenden kan du ringa växeln direkt.
-            </p>
-            <Link className="button button-primary" href="/kontakt">
-              Starta dialogen
-            </Link>
+            <h2>Kontakta oss gärna</h2>
+            <p>Ring, maila eller fyll i formuläret så hör vi av oss så fort vi kan.</p>
+            <dl className="contact-details">
+              <div>
+                <dt>Adress</dt>
+                <dd>{firm.address}</dd>
+              </div>
+              <div>
+                <dt>E-post</dt>
+                <dd>
+                  <a href={`mailto:${firm.email}`}>{firm.email}</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Telefon</dt>
+                <dd>
+                  <a href={`tel:${firm.phone.replaceAll(" ", "")}`}>
+                    {firm.phone}
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
-          <div className="office-list">
-            {offices.map((office) => (
-              <article key={office.city}>
-                <h3>{office.city}</h3>
-                <p>{office.address}</p>
-                <a href={`tel:${office.phone.replaceAll(" ", "")}`}>
-                  {office.phone}
-                </a>
-              </article>
-            ))}
-          </div>
+
+          <ContactForm />
         </div>
       </section>
     </>

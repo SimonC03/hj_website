@@ -2,8 +2,9 @@ export const firm = {
   name: "HJ Advokatbyra",
   displayName: "HJ Advokatbyrå",
   tagline: "Affärsjuridisk rådgivning med kommersiell skärpa.",
-  email: "kontakt@hjadvokatbyra.se",
-  phone: "+46 8 410 000 00",
+  email: "vd.holding@hhgs.se",
+  phone: "031-20 27 20",
+  address: "Viktoriagatan 9, 411 25 Göteborg",
 };
 
 export const navItems = [

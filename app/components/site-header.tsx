@@ -12,6 +12,7 @@ type MenuItem = {
 
 const quickNav = [
   { label: "EXPERTISOMRÅDEN", href: "/expertis" },
+  { label: "PRISER", href: "/priser" },
   { label: "MEDARBETARE", href: "/medarbetare" },
 ];
 
@@ -26,6 +27,7 @@ const mainMenu: MenuItem[] = [
       { label: "ESG i rådgivningen", href: "/expertis" },
     ],
   },
+  { label: "Priser", href: "/priser" },
   { label: "Medarbetare", href: "/medarbetare" },
   {
     label: "Aktuellt",
