@@ -4,7 +4,6 @@ export type EmployeeProfile = {
   email: string;
   phone: string;
   profileImage: string;
-  linkedinUrl: string;
   office?: string;
   about?: string;
   specialAreas?: string[];
@@ -31,7 +30,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "dino.sljivo@handelsjuristerna.se",
         phone: "0762 – 09 44 20",
         profileImage: "/people/dino-sljivo.png",
-        linkedinUrl: "",
         languages: ["Svenska", "Engelska"],
         education: ["Juristexamen, Stockholms universitet"],
         experience: [
@@ -47,7 +45,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "patricia.chantino@handelsjuristerna.se",
         phone: "0708 – 53 13 89",
         profileImage: "/people/patricia-chantino-tellin.png",
-        linkedinUrl: "",
       },
       {
         name: "Robin Bozrgpour",
@@ -55,7 +52,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "robin.bozrgpour@handelsjuristerna.se",
         phone: "0722 – 36 20 02",
         profileImage: "/people/robin-bozrgpour.png",
-        linkedinUrl: "",
       },
       {
         name: "Evelina Regius",
@@ -63,7 +59,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "evelina.regius@handelsjuristerna.se",
         phone: "0722 – 37 71 20",
         profileImage: "/people/evelina-regius.png",
-        linkedinUrl: "",
       },
       {
         name: "Rima El-Dawi",
@@ -71,7 +66,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "rima.eldawi@handelsjuristerna.se",
         phone: "0739 – 61 62 19",
         profileImage: "/people/rima-el-dawi.png",
-        linkedinUrl: "",
       },
       {
         name: "Adam Svensson",
@@ -79,7 +73,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "adam.svensson@handelsjuristerna.se",
         phone: "0723 – 96 48 44",
         profileImage: "/people/adam-svensson.png",
-        linkedinUrl: "",
       },
       {
         name: "Olivia Krantz",
@@ -87,7 +80,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "olivia.krantz@handelsjuristerna.se",
         phone: "0728 – 40 00 06",
         profileImage: "/people/olivia-krantz.png",
-        linkedinUrl: "",
       },
     ],
   },
@@ -101,7 +93,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "elin.strandberg@handelsjuristerna.se",
         phone: "0705 – 78 38 28",
         profileImage: "/people/elin-andersson.png",
-        linkedinUrl: "",
       },
       {
         name: "Ebba Billström",
@@ -109,7 +100,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "ebba.billstrom@handelsjuristerna.se",
         phone: "0725 – 51 76 49",
         profileImage: "/people/ebba-billstrom.png",
-        linkedinUrl: "",
       },
       {
         name: "Lorin Cicek",
@@ -117,7 +107,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "lorin.cicek@handelsjuristerna.se",
         phone: "0725 – 20 86 46",
         profileImage: "/people/lorin-cicek.png",
-        linkedinUrl: "",
       },
       {
         name: "Lara Dias",
@@ -125,7 +114,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "lara.dias@handelsjuristerna.se",
         phone: "0763 – 45 70 26",
         profileImage: "/people/lara-dias.png",
-        linkedinUrl: "",
       },
       {
         name: "Malin Eliasson",
@@ -133,7 +121,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "malin.eliasson@handelsjuristerna.se",
         phone: "0727 – 13 57 79",
         profileImage: "/people/malin-eliasson.png",
-        linkedinUrl: "",
       },
       {
         name: "Lisa Garnbratt",
@@ -141,7 +128,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "lisa.garnbratt@handelsjuristerna.se",
         phone: "0722 – 52 70 00",
         profileImage: "/people/lisa-garnbratt.png",
-        linkedinUrl: "",
       },
       {
         name: "Erik Hakopian",
@@ -149,7 +135,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "erik.hakopian@handelsjuristerna.se",
         phone: "0737 – 49 29 95",
         profileImage: "/people/erik-hakopian.png",
-        linkedinUrl: "",
       },
       {
         name: "Alexander Jonemark",
@@ -157,7 +142,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "alexander.jonemark@handelsjuristerna.se",
         phone: "0764 – 28 06 38",
         profileImage: "/people/alexander-jonemark.png",
-        linkedinUrl: "",
       },
       {
         name: "Ishak Kenjar",
@@ -165,7 +149,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "ishak.kenjar@handelsjuristerna.se",
         phone: "0761 – 70 88 60",
         profileImage: "/people/ishak-kenjar.png",
-        linkedinUrl: "",
       },
       {
         name: "Max Lokrantz",
@@ -173,7 +156,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "max.lokrantz@handelsjuristerna.se",
         phone: "0736 – 78 74 79",
         profileImage: "/people/max-lokrantz.png",
-        linkedinUrl: "",
       },
       {
         name: "Eduart Meta",
@@ -181,7 +163,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "eduart.meta@handelsjuristerna.se",
         phone: "0735 – 58 93 87",
         profileImage: "/people/eduart-meta.png",
-        linkedinUrl: "",
       },
       {
         name: "Else Nordlander",
@@ -189,7 +170,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "else.nordlander@handelsjuristerna.se",
         phone: "0705 – 64 66 15",
         profileImage: "/people/else-nordlander.png",
-        linkedinUrl: "",
       },
       {
         name: "Aldijana Olevic",
@@ -197,7 +177,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "aldijana.olevic@handelsjuristerna.se",
         phone: "0709 – 38 18 78",
         profileImage: "/people/aldijana-olevic.png",
-        linkedinUrl: "",
       },
       {
         name: "Gabriel Omari",
@@ -205,7 +184,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "gabriel.omari@handelsjuristerna.se",
         phone: "0736 – 40 27 87",
         profileImage: "/people/gabriel-omari.png",
-        linkedinUrl: "",
       },
       {
         name: "Marta Pawlowska",
@@ -213,7 +191,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "marta.pawlowska@handelsjuristerna.se",
         phone: "0704 – 34 82 63",
         profileImage: "/people/marta-pawlowska.png",
-        linkedinUrl: "",
       },
       {
         name: "Jasmin Sadek",
@@ -221,7 +198,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "jasmin.sadek@handelsjuristerna.se",
         phone: "0739 – 38 39 30",
         profileImage: "/people/jasmin-sadek.png",
-        linkedinUrl: "",
       },
       {
         name: "Mahan Safar",
@@ -229,7 +205,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "mahan.safar@handelsjuristerna.se",
         phone: "0765 – 59 98 66",
         profileImage: "/people/mahan-safar.png",
-        linkedinUrl: "",
       },
       {
         name: "Emelie Söderman",
@@ -237,7 +212,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "emelie.soderman@handelsjuristerna.se",
         phone: "0720 – 09 55 06",
         profileImage: "/people/emelie-soderman.png",
-        linkedinUrl: "",
       },
       {
         name: "Isa Yildiz",
@@ -245,7 +219,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "isa.yildiz@handelsjuristerna.se",
         phone: "0735 – 35 42 29",
         profileImage: "/people/isa-yildiz.png",
-        linkedinUrl: "",
       },
       {
         name: "Sonya Öhlin",
@@ -253,7 +226,6 @@ export const employeeSections: EmployeeSection[] = [
         email: "sonya.ohlin@handelsjuristerna.se",
         phone: "0702 – 01 06 24",
         profileImage: "/people/sonya-ohlin.png",
-        linkedinUrl: "",
       },
     ],
   },
