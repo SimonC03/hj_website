@@ -452,6 +452,70 @@ select {
   margin-top: 34px;
 }
 
+.main-partners-section {
+  background: var(--navy-950);
+  color: var(--white);
+  padding-top: 72px;
+  padding-bottom: 78px;
+}
+
+.main-partners-content {
+  display: grid;
+  gap: 28px;
+  text-align: center;
+}
+
+.main-partners-content .eyebrow {
+  color: var(--orange-500);
+  margin-bottom: -12px;
+}
+
+.main-partners-content h2 {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-hj-serif), Georgia, serif;
+  font-size: clamp(2.35rem, 3.8vw, 4rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.main-partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.main-partner-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(100%, 300px);
+  min-height: 92px;
+  padding: 22px 32px;
+  border: 1px solid var(--footer-border);
+  border-radius: 6px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.main-partner-link:hover,
+.main-partner-link:focus-visible {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--orange-500);
+}
+
+.main-partner-logo {
+  display: block;
+  width: auto;
+  height: clamp(38px, 4.2vw, 54px);
+  max-width: min(100%, 320px);
+  object-fit: contain;
+}
+
 .client-marquee-section {
   padding: 30px 0 58px;
   overflow: hidden;
@@ -1400,6 +1464,12 @@ select {
 .partner-logo {
   opacity: 0.9;
   transition: opacity 180ms ease;
+}
+
+.partner-logo-footer {
+  width: auto;
+  height: 48px;
+  max-width: 100%;
 }
 
 .partner-logo:hover,

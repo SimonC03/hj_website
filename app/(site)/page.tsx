@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/app/components/contact-form";
+import { footerData } from "@/app/components/site-footer";
 import { clientLogos, firm, practiceAreas, values } from "@/app/data/site";
 
 export default function HomePage() {
@@ -65,28 +66,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="client-marquee-section" aria-label="Tidigare kunder">
-        <div className="client-marquee" aria-label="Tidigare kunder">
-          {[0, 1].map((loop) => (
-            <div
-              className="client-marquee-track"
-              aria-hidden={loop === 1}
-              key={loop}
+      <section
+  className="section main-partners-section"
+  aria-labelledby="main-partners-title"
+>
+  <div className="section-inner main-partners-content">
+    <div className="main-partners-copy">
+      <p className="eyebrow">Huvudpartners</p>
+
+      <h2 id="main-partners-title">
+        Tillsammans med våra huvudpartners
+      </h2>
+
+      <p>
+        Våra huvudpartners är med och stärker HandelsFöretagen genom
+        långsiktiga samarbeten, kunskapsutbyte och möjligheter för våra
+        medlemmar att möta näringslivet på riktigt.
+      </p>
+    </div>
+
+    {footerData.partners.length > 0 ? (
+      <div className="main-partners-grid">
+        {footerData.partners.map((partner) => {
+          const logo = (
+            <Image
+              alt={`${partner.name} logo`}
+              className="main-partner-logo"
+              height={partner.height}
+              src={partner.logo}
+              width={partner.width}
+            />
+          );
+
+          return partner.href ? (
+            <a
+              aria-label={`Besök ${partner.name}`}
+              className="main-partner-link"
+              href={partner.href}
+              key={partner.name}
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              {clientLogos.map((logo) => (
-                <Image
-                  alt={loop === 0 ? logo.alt : ""}
-                  className="client-logo"
-                  height={80}
-                  key={`${loop}-${logo.name}`}
-                  src={logo.src}
-                  width={logo.width}
-                />
-              ))}
+              {logo}
+            </a>
+          ) : (
+            <div className="main-partner-link" key={partner.name}>
+              {logo}
             </div>
-          ))}
-        </div>
-      </section>
+          );
+        })}
+      </div>
+    ) : null}
+  </div>
+</section>
 
       <section className="section expertise-section">
         <div className="section-inner expertise-heading">
@@ -111,6 +143,29 @@ export default function HomePage() {
                 Läs mer
               </span>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="client-marquee-section" aria-label="Tidigare kunder">
+        <div className="client-marquee" aria-label="Tidigare kunder">
+          {[0, 1].map((loop) => (
+            <div
+              className="client-marquee-track"
+              aria-hidden={loop === 1}
+              key={loop}
+            >
+              {clientLogos.map((logo) => (
+                <Image
+                  alt={loop === 0 ? logo.alt : ""}
+                  className="client-logo"
+                  height={80}
+                  key={`${loop}-${logo.name}`}
+                  src={logo.src}
+                  width={logo.width}
+                />
+              ))}
+            </div>
           ))}
         </div>
       </section>

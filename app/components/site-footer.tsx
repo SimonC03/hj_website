@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Office = {
@@ -33,7 +34,13 @@ export const footerData = {
     email: "info@handelsjuristerna.se",
   } satisfies Office,
   partners: [
-    { name: "CMS Wistrand", logo: "/partners/CMS_W.png", href: "https://cms.law/en/swe/" },
+    {
+      name: "CMS Wistrand",
+      logo: "/partners/CMS_W.png",
+      href: "https://cms.law/en/swe/",
+      width: 728,
+      height: 83,
+    },
   ],
 };
 
@@ -168,18 +175,17 @@ export function SiteFooter() {
               {footerData.partners.length > 0 ? (
                 <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
                   {footerData.partners.map((partner) => {
-                    const img = (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                    const logo = (
+                      <Image
                         key={partner.name}
                         src={partner.logo}
                         alt={`${partner.name} logo`}
-                        className="partner-logo"
-                        style={{ 
-                          height: "48px", 
-                          width: "auto", 
+                        className="partner-logo partner-logo-footer"
+                        height={partner.height}
+                        width={partner.width}
+                        style={{
                           objectFit: "contain",
-                          filter: "brightness(0) invert(1)"
+                          filter: "brightness(0) invert(1)",
                         }}
                       />
                     );
@@ -193,10 +199,10 @@ export function SiteFooter() {
                         aria-label={`Besök ${partner.name}`}
                         style={{ display: "inline-block" }}
                       >
-                        {img}
+                        {logo}
                       </a>
                     ) : (
-                      img
+                      logo
                     );
                   })}
                 </div>
