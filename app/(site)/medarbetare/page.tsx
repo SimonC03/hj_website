@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { employeeSections, type EmployeeProfile } from "./people";
+import Link from "next/link";
+import { employeeSections, getEmployeeId, type EmployeeProfile } from "@/app/data/people";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -11,58 +12,46 @@ function splitName(name: string) {
   return name.split(" ").map((part) => <span key={`${name}-${part}`}>{part}</span>);
 }
 
-function toPhoneHref(phone: string) {
-  return `tel:${phone.replaceAll(" ", "")}`;
-}
-
 function EmployeeGrid({ people }: { people: EmployeeProfile[] }) {
   return (
     <div className={styles.grid}>
-      {people.map((person) => (
-        <article
-          className={styles.card}
-          key={person.email}
-          style={{ backgroundImage: `url("${person.profileImage}")` }}
-        >
-          <div className={styles.previewLink}>
-            <div className={styles.previewContent}>
-              <h3 className={styles.previewName}>
-                <span className={styles.previewNameWords}>{splitName(person.name)}</span>
-              </h3>
-              <p className={styles.previewRole}>{person.title}</p>
-            </div>
-          </div>
+      {people.map((person) => {
+        const profileHref = `/medarbetare/${getEmployeeId(person)}`;
 
-          <div className={styles.hoverPanel}>
-            {person.linkedinUrl ? (
-              <a
-                aria-label={`${person.name} på LinkedIn`}
-                className={styles.linkedin}
-                href={person.linkedinUrl}
-                rel="noreferrer"
-                target="_blank"
-              >
-                in
-              </a>
-            ) : null}
-
-            <div className={styles.hoverBody}>
-              <h3 className={styles.hoverName}>
-                <span className={styles.hoverNameWords}>{splitName(person.name)}</span>
-              </h3>
-              <p className={styles.hoverRole}>{person.title}</p>
-              <a className={styles.contactLink} href={`mailto:${person.email}`}>
-                {person.email}
-              </a>
-              <div className={styles.phoneList}>
-                <a className={styles.phoneLink} href={toPhoneHref(person.phone)}>
-                  {person.phone}
-                </a>
+        return (
+          <Link
+            aria-label={`Läs mer om ${person.name}`}
+            className={styles.card}
+            href={profileHref}
+            key={person.email}
+            style={{ backgroundImage: `url("${person.profileImage}")` }}
+          >
+            <article className={styles.cardInner}>
+              <div className={styles.previewLink}>
+                <div className={styles.previewContent}>
+                  <h3 className={styles.previewName}>
+                    <span className={styles.previewNameWords}>{splitName(person.name)}</span>
+                  </h3>
+                  <p className={styles.previewRole}>{person.title}</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </article>
-      ))}
+
+              <div className={styles.hoverPanel}>
+                <div className={styles.hoverBody}>
+                  <h3 className={styles.hoverName}>
+                    <span className={styles.hoverNameWords}>{splitName(person.name)}</span>
+                  </h3>
+                  <p className={styles.hoverRole}>{person.title}</p>
+                  <span className={styles.contactLink}>{person.email}</span>
+                  <div className={styles.phoneList}>
+                    <span className={styles.phoneLink}>{person.phone}</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </Link>
+        );
+      })}
     </div>
   );
 }

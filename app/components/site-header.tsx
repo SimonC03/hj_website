@@ -63,7 +63,7 @@ function HeaderLogo({ className = "" }: { className?: string }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="logos/full-white.png"
+      src="/logos/full-white.png"
       alt={firm.displayName}
       className={`hj-header-logo ${className}`}
       style={{ objectFit: "contain", objectPosition: "left center" }}

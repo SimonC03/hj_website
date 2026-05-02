@@ -44,7 +44,7 @@ function FooterLogo() {
       alt={`${footerData.brandName} Logotyp`}
       className="site-footer-logo"
       height="120"
-      src="logos/emblem.png"
+      src="/logos/emblem.png"
       style={{ objectFit: "contain" }}
       width="120"
     />

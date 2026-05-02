@@ -5,6 +5,13 @@ export type EmployeeProfile = {
   phone: string;
   profileImage: string;
   linkedinUrl: string;
+  office?: string;
+  about?: string;
+  specialAreas?: string[];
+  education?: string[];
+  experience?: string[];
+  projects?: string[];
+  languages?: string[];
 };
 
 export type EmployeeSection = {
@@ -25,6 +32,14 @@ export const employeeSections: EmployeeSection[] = [
         phone: "0762 – 09 44 20",
         profileImage: "/people/dino-sljivo.png",
         linkedinUrl: "",
+        languages: ["Svenska", "Engelska"],
+        education: ["Juristexamen, Stockholms universitet"],
+        experience: [
+          "VD, Handelsjuristerna (2020–nuvarande)",
+          "Affärsområdesansvarig, Handelsjuristerna (2018–2020)",
+          "Juridisk konsult, Handelsjuristerna (2015–2018)",
+        ],
+        specialAreas: ["Kommersiell avtalsrätt", "Bolagsrätt", "Tvistelösning"],
       },
       {
         name: "Patricia Chantino Tellin",
@@ -243,3 +258,18 @@ export const employeeSections: EmployeeSection[] = [
     ],
   },
 ];
+
+export const employees = employeeSections.flatMap((section) => section.people);
+
+export function getEmployeeId(person: Pick<EmployeeProfile, "name">) {
+  return person.name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function findEmployeeById(id: string) {
+  return employees.find((person) => getEmployeeId(person) === id);
+}

@@ -62,6 +62,7 @@
 
 .card {
   position: relative;
+  display: block;
   min-height: 320px;
   aspect-ratio: 1440 / 1700;
   overflow: hidden;
@@ -70,6 +71,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   isolation: isolate;
+}
+
+.cardInner {
+  position: absolute;
+  inset: 0;
 }
 
 .card::before {
@@ -99,8 +105,9 @@
   outline-offset: -6px;
 }
 
-.hoverPanel a:focus-visible {
+.card:focus-visible {
   outline: 2px solid var(--orange-600);
+  outline-offset: -6px;
 }
 
 .previewContent {
@@ -172,25 +179,6 @@
   color: var(--white);
   transform: translateY(14px);
   transition: transform 220ms ease;
-}
-
-.linkedin {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--white-24);
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.18);
-  color: var(--white);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .hoverName {
