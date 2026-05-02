@@ -91,8 +91,6 @@ export default async function EmployeePage({ params }: EmployeePageProps) {
     notFound();
   }
 
-  const office = person.office ?? "Göteborg";
-
   return (
     <div className={styles.page}>
       <article className={styles.person}>
@@ -116,40 +114,30 @@ export default async function EmployeePage({ params }: EmployeePageProps) {
             <h1 className={styles.name}>{person.name}</h1>
             <p className={styles.title}>{person.title}</p>
 
-            <div className={styles.officeWrapper}>
-              <p className={styles.office}>{office}</p>
-            </div>
-
             <hr className={styles.rule} />
 
-            <div className={styles.contactGrid}>
-              <div className={styles.fieldGroup}>
-                <p className={styles.fieldTitle}>Mobiltelefon</p>
-                <a className={styles.fieldLink} href={toPhoneHref(person.phone)}>
-                  {person.phone}
-                </a>
-              </div>
-
-              <div className={styles.fieldGroup}>
-                <p className={styles.fieldTitle}>E-postadress</p>
-                <a className={styles.fieldLink} href={`mailto:${person.email}`}>
+            <div className={styles.contactBlock}>
+              <h2 className={styles.profileDetailTitle}>Kontakt</h2>
+              <div className={styles.contactList}>
+                <a className={styles.infoLink} href={`mailto:${person.email}`}>
                   {person.email}
                 </a>
-              </div>
 
-              {person.linkedinUrl ? (
-                <div className={styles.fieldGroup}>
-                  <p className={styles.fieldTitle}>LinkedIn</p>
+                <a className={styles.infoLink} href={toPhoneHref(person.phone)}>
+                  {person.phone}
+                </a>
+
+                {person.linkedinUrl ? (
                   <a
-                    className={styles.fieldLink}
-                    href={person.linkedinUrl}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Besök profil
-                  </a>
-                </div>
+                  className={styles.infoLink}
+                  href={person.linkedinUrl}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Besök profil
+                </a>
               ) : null}
+              </div>
             </div>
 
             <hr className={styles.rule} />

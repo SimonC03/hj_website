@@ -11,6 +11,7 @@ export type EmployeeProfile = {
   experience?: string[];
   projects?: string[];
   languages?: string[];
+  linkedinUrl?: string;
 };
 
 export type EmployeeSection = {
