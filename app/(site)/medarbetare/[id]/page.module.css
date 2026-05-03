@@ -31,7 +31,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(6, 23, 40, 0.02) 42%, rgba(6, 23, 40, 0.32) 100%);
+    linear-gradient(180deg, rgb(var(--brand-blue-rgb) / 0.02) 42%, rgb(var(--brand-blue-rgb) / 0.32) 100%);
   pointer-events: none;
 }
 
@@ -44,9 +44,9 @@
   align-items: center;
   min-height: 40px;
   padding: 0 15px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(var(--brand-white-rgb) / 0.5);
   border-radius: 4px;
-  background: rgba(6, 23, 40, 0.7);
+  background: rgb(var(--brand-blue-rgb) / 0.7);
   color: var(--white);
   font-size: 0.84rem;
   font-weight: 850;
@@ -98,7 +98,7 @@
 
 .title {
   margin: 18px 0 0;
-  color: rgba(6, 23, 40, 0.72);
+  color: rgb(var(--brand-blue-rgb) / 0.72);
   font-size: clamp(1.18rem, 1.55vw, 1.48rem);
   font-weight: 650;
   line-height: 1.38;
@@ -110,7 +110,7 @@
 
 .office {
   margin: 0;
-  color: rgba(6, 23, 40, 0.66);
+  color: rgb(var(--brand-blue-rgb) / 0.66);
   font-size: 0.92rem;
   font-weight: 750;
 }
@@ -149,7 +149,7 @@
 
 .fieldTitle {
   margin: 0;
-  color: rgba(6, 23, 40, 0.54);
+  color: rgb(var(--brand-blue-rgb) / 0.54);
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -182,7 +182,7 @@
 
 .imageBackLink:hover {
   border-color: var(--orange-500);
-  background: rgba(6, 23, 40, 0.78);
+  background: rgb(var(--brand-blue-rgb) / 0.78);
 }
 
 .profileDetails {
@@ -202,7 +202,7 @@
 
 .profileDetailTitle {
   margin: 0;
-  color: rgba(6, 23, 40, 0.56);
+  color: rgb(var(--brand-blue-rgb) / 0.56);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -210,7 +210,7 @@
 }
 
 .profileDetailContent {
-  color: rgba(6, 23, 40, 0.78);
+  color: rgb(var(--brand-blue-rgb) / 0.78);
   font-size: clamp(0.96rem, 1.05vw, 1.08rem);
   font-weight: 700;
   line-height: 1.45;
@@ -261,9 +261,9 @@
   align-items: center;
   min-height: 30px;
   padding: 0 11px;
-  border: 1px solid rgba(201, 121, 50, 0.32);
+  border: 1px solid rgb(var(--brand-orange-rgb) / 0.32);
   border-radius: 999px;
-  background: rgba(201, 121, 50, 0.08);
+  background: rgb(var(--brand-orange-rgb) / 0.08);
   color: var(--navy-950);
   font-size: 0.78rem;
   font-weight: 800;
@@ -352,12 +352,12 @@
 }
 
 .bgBrown {
-  background: #7a5a47;
+  background: var(--brand-blue);
   color: var(--white);
 }
 
 .bgKhaki {
-  background: #d8ccb0;
+  background: var(--brand-white);
   color: var(--navy-950);
 }
 
@@ -428,8 +428,8 @@
 .relatedGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid rgba(6, 23, 40, 0.18);
-  border-left: 1px solid rgba(6, 23, 40, 0.18);
+  border-top: 1px solid rgb(var(--brand-blue-rgb) / 0.18);
+  border-left: 1px solid rgb(var(--brand-blue-rgb) / 0.18);
 }
 
 .relatedCard {
@@ -437,8 +437,8 @@
   align-content: space-between;
   min-height: 190px;
   padding: 22px;
-  border-right: 1px solid rgba(6, 23, 40, 0.18);
-  border-bottom: 1px solid rgba(6, 23, 40, 0.18);
+  border-right: 1px solid rgb(var(--brand-blue-rgb) / 0.18);
+  border-bottom: 1px solid rgb(var(--brand-blue-rgb) / 0.18);
   background: var(--white);
   text-decoration-color: transparent;
   text-underline-offset: 5px;
@@ -454,7 +454,7 @@
 
 .relatedCard small {
   margin-top: 22px;
-  color: rgba(6, 23, 40, 0.68);
+  color: rgb(var(--brand-blue-rgb) / 0.68);
   font-size: 0.92rem;
   font-weight: 750;
   line-height: 1.35;

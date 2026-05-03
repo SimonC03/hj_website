@@ -86,10 +86,10 @@
   background:
     linear-gradient(
       180deg,
-      rgba(4, 8, 15, 0.02) 0%,
-      rgba(4, 8, 15, 0.12) 34%,
-      rgba(4, 8, 15, 0.54) 70%,
-      rgba(4, 8, 15, 0.94) 100%
+      rgb(var(--brand-blue-rgb) / 0.02) 0%,
+      rgb(var(--brand-blue-rgb) / 0.12) 34%,
+      rgb(var(--brand-blue-rgb) / 0.54) 70%,
+      rgb(var(--brand-blue-rgb) / 0.94) 100%
     );
   transition: opacity 220ms ease;
 }
@@ -144,7 +144,7 @@
 .previewRole {
   margin: 18px 0 0;
   padding-top: 14px;
-  border-top: 1px solid rgba(201, 121, 50, 0.95);
+  border-top: 1px solid rgb(var(--brand-orange-rgb) / 0.95);
   color: var(--white);
   font-family: var(--font-hj-sans), Arial, Helvetica, sans-serif;
   font-size: 1rem;
@@ -163,10 +163,10 @@
   background:
     linear-gradient(
       180deg,
-      rgba(4, 8, 15, 0.14) 0%,
-      rgba(4, 8, 15, 0.38) 34%,
-      rgba(4, 8, 15, 0.86) 68%,
-      rgba(4, 8, 15, 0.96) 100%
+      rgb(var(--brand-blue-rgb) / 0.14) 0%,
+      rgb(var(--brand-blue-rgb) / 0.38) 34%,
+      rgb(var(--brand-blue-rgb) / 0.86) 68%,
+      rgb(var(--brand-blue-rgb) / 0.96) 100%
     );
   opacity: 0;
   pointer-events: none;

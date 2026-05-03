@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { MainPartnersSection } from "@/app/components/main-partners-section";
 import { boardMembers } from "@/app/data/board";
 
 const infoItems = [
@@ -35,7 +36,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+      <MainPartnersSection />
       <section className="about-page-image-section">
         <div className="wrapper content-module_width-medium about-page-image-grid">
           <figure className="content-module_thumbnail about-page-image">
@@ -59,6 +60,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      
 
       <section className="about-page-board" aria-labelledby="about-board-title">
         <div className="section-inner">

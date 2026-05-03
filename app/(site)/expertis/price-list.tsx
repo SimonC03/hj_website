@@ -1,32 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import {
-  BriefcaseBusiness,
-  Check,
-  ChevronDown,
-  Home,
-  Layers3,
-  Scale,
-  Users,
-} from "lucide-react";
-import type { ComponentType } from "react";
+import { Check, ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
 import styles from "./page.module.css";
 import {
   pricingCategories,
   pricingServices,
-  type PricingCategory,
   type PricingCategoryId,
 } from "./pricing-data";
-
-const icons: Record<PricingCategory["icon"], ComponentType<{ size?: number }>> = {
-  briefcase: BriefcaseBusiness,
-  home: Home,
-  layers: Layers3,
-  scale: Scale,
-  users: Users,
-};
 
 export function PriceList() {
   const [activeCategory, setActiveCategory] = useState<PricingCategoryId>("all");
@@ -39,23 +21,16 @@ export function PriceList() {
     return pricingServices.filter((service) => service.category === activeCategory);
   }, [activeCategory]);
 
-  return (
-    <section className={`section ${styles.pricingSection}`}>
-      <div className="section-inner">
-        <div className={styles.pricingHeader}>
-          <div>
-            <p className="eyebrow">Prislista</p>
-            <h2>Välj område och öppna den tjänst du vill veta mer om.</h2>
-          </div>
-          <p>
-            Från-priserna ger en tydlig startpunkt. Om ett ärende kräver mer
-            omfattande rådgivning stämmer vi av omfattning och arvode innan vi går vidare.
-          </p>
-        </div>
+  const activeCategoryLabel =
+    activeCategory === "all"
+      ? "Visar hela prislistan"
+      : pricingCategories.find((category) => category.id === activeCategory)?.title;
 
+  return (
+    <section aria-label="Prislista" className={`section ${styles.pricingSection}`}>
+      <div className="section-inner">
         <div aria-label="Prisområden" className={styles.categoryTabs} role="tablist">
           {pricingCategories.map((category) => {
-            const Icon = icons[category.icon];
             const isActive = category.id === activeCategory;
 
             return (
@@ -68,10 +43,7 @@ export function PriceList() {
                 role="tab"
                 type="button"
               >
-                <span className={styles.categoryIcon} aria-hidden="true">
-                  <Icon size={24} />
-                </span>
-                <span>
+                <span className={styles.categoryText}>
                   <strong>{category.title}</strong>
                   <small>{category.description}</small>
                 </span>
@@ -83,11 +55,7 @@ export function PriceList() {
         <div className={styles.servicesShell} id="pricing-services" role="tabpanel">
           <div className={styles.servicesMeta}>
             <span>{services.length} tjänster</span>
-            <span>
-              {activeCategory === "all"
-                ? "Visar hela prislistan"
-                : pricingCategories.find((category) => category.id === activeCategory)?.title}
-            </span>
+            <span>{activeCategoryLabel}</span>
           </div>
 
           <div className={styles.serviceList}>

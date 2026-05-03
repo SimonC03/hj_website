@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/app/components/contact-form";
-import { footerData } from "@/app/components/site-footer";
+import { MainPartnersSection } from "@/app/components/main-partners-section";
 import { clientLogos, firm, practiceAreas, values } from "@/app/data/site";
 
 export default function HomePage() {
@@ -66,64 +66,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        className="module-component module-component_content main-partners-section"
-        aria-labelledby="main-partners-title"
-      >
-        <div className="wrapper content-module_width-narrow">
-          <div className="content-module_wrapper content-module_wrapper-center">
-            <h2
-              className="content-module_title section-title"
-              id="main-partners-title"
-            >
-              Huvudpartners
-            </h2>
-            <div className="content-module_content article-text text-flow">
-              <p className="preamble-large">
-                Våra huvudpartners stärker HandelsJuristerna genom långsiktiga
-                samarbeten, kunskapsutbyte och möjligheter för våra medarbetare
-                att möta näringslivet på riktigt.
-              </p>
-            </div>
-          </div>
+      <MainPartnersSection />
 
-          {footerData.partners.length > 0 ? (
-            <div className="main-partners-grid" aria-label="Huvudpartners">
-              {footerData.partners.map((partner) => {
-                const logo = (
-                  <Image
-                    alt={`${partner.name} logo`}
-                    className="main-partner-logo"
-                    height={partner.height}
-                    src={partner.logo}
-                    width={partner.width}
-                  />
-                );
-
-                return partner.href ? (
-                  <a
-                    aria-label={`Besök ${partner.name}`}
-                    className="main-partner-link"
-                    href={partner.href}
-                    key={partner.name}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {logo}
-                  </a>
-                ) : (
-                  <div className="main-partner-link" key={partner.name}>
-                    {logo}
-                  </div>
-                );
-              })}
-            </div>
-          ) : null}
-        </div>
-      </section>
-
-      <section className="section section-navy work-method-section">
-        <div className="section-inner split work-method-layout">
+      <section className="section work-method-section">
+        <div className="section-inner split section-navy work-method-layout">
           <div className="work-method-copy">
             <h2>Senior, rak och kommersiellt förankrad rådgivning.</h2>
             <p>
@@ -133,9 +79,8 @@ export default function HomePage() {
             </p>
           </div>
           <div className="values-list">
-            {values.map((value, index) => (
+            {values.map((value) => (
               <p key={value}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
                 {value}
               </p>
             ))}
@@ -165,16 +110,13 @@ export default function HomePage() {
         </div>
 
         <div className="section-inner expertise-grid">
-          {practiceAreas.map((area, index) => (
+          {practiceAreas.map((area) => (
             <Link
               className="expertise-item"
               href="/expertis"
               key={area.title}
               aria-label={`Läs mer om ${area.title}`}
             >
-              <span className="expertise-number">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               <h3>{area.title}</h3>
               <p>{area.description}</p>
               <span className="expertise-read-more" aria-hidden="true">

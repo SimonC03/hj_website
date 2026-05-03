@@ -80,8 +80,8 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
-  const isAboutPage = pathname === "/om-oss";
-  const logoSrc = isAboutPage ? "/logos/full-black.png" : "/logos/full-white.png";
+  const usesLightHeader = pathname === "/om-oss" || pathname === "/expertis";
+  const logoSrc = usesLightHeader ? "/logos/full-black.png" : "/logos/full-white.png";
 
   const closeAll = () => {
     setIsMenuOpen(false);
