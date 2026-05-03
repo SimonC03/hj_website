@@ -204,17 +204,29 @@ select {
   align-items: center;
   justify-content: center;
   min-height: 42px;
-  padding: 0 18px;
-  background: var(--navy-950);
-  color: var(--white);
+  min-width: 132px;
+  padding: 0 28px;
+  background: transparent;
+  color: var(--orange-600);
   font-size: 0.9rem;
   font-weight: 700;
-  border: 1px solid var(--navy-950);
+  line-height: 1;
+  text-align: center;
+  border: 1.5px solid var(--orange-600);
+  border-radius: 0;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.header-cta:hover {
+.header-cta:hover,
+.header-cta:focus-visible {
   background: var(--orange-600);
-  border-color: var(--orange-600);
+  color: var(--white);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 121, 50, 0.16);
 }
 
 .site-main {
@@ -319,31 +331,50 @@ select {
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0 22px;
+  min-width: 164px;
+  padding: 0 34px;
+  background: transparent;
+  color: var(--orange-600);
   font-size: 0.93rem;
   font-weight: 800;
-  border: 1px solid transparent;
+  line-height: 1;
+  text-align: center;
+  border: 1.5px solid var(--orange-600);
+  border-radius: 0;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
 }
 
-.button-primary {
-  background: var(--orange-600);
-  color: var(--navy-950);
+.button-primary,
+.button-secondary {
+  background: transparent;
+  color: var(--orange-600);
   border-color: var(--orange-600);
 }
 
-.button-primary:hover {
-  background: var(--orange-500);
-  border-color: var(--orange-500);
-}
-
-.button-secondary {
+.button:hover,
+.button:focus-visible,
+.button-primary:hover,
+.button-primary:focus-visible,
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: var(--orange-600);
   color: var(--white);
-  border-color: var(--white-48);
+  border-color: var(--orange-600);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 121, 50, 0.16);
 }
 
-.button-secondary:hover {
-  background: var(--white-10);
-  border-color: var(--white);
+.button:disabled,
+.button:disabled:hover,
+.button:disabled:focus-visible {
+  background: transparent;
+  color: var(--orange-600);
+  border-color: var(--orange-600);
+  box-shadow: none;
 }
 
 .section {
@@ -963,13 +994,30 @@ select {
 }
 
 .section-navy {
-  background: var(--navy-900);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 38%),
+    var(--navy-900);
   color: var(--section-dark-text);
 }
 
 .section.section-navy {
   padding-top: clamp(112px, 8.5vw, 146px);
   padding-bottom: clamp(112px, 8.5vw, 146px);
+}
+
+.work-method-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.work-method-layout {
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.86fr);
+  gap: clamp(64px, 7vw, 112px);
+  align-items: center;
+}
+
+.work-method-copy {
+  max-width: 660px;
 }
 
 .section-navy h2 {
@@ -980,18 +1028,42 @@ select {
   color: var(--gold-200);
 }
 
+.work-method-copy p:not(.eyebrow) {
+  max-width: 54ch;
+  margin: 34px 0 0;
+  color: rgba(242, 238, 229, 0.72);
+  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
+  line-height: 1.85;
+}
+
 .values-list {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .values-list p {
   margin: 0;
-  padding: 26px 0;
-  color: var(--section-dark-muted);
-  border-top: 1px solid var(--line-dark);
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 28px 0;
+  color: rgba(242, 238, 229, 0.88);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   font-size: 1.22rem;
   line-height: 1.5;
+}
+
+.values-list p:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.values-list span {
+  color: var(--gold-200);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.9;
 }
 
 .section-heading {
@@ -1673,6 +1745,17 @@ select {
   .section.contact-band {
     padding-top: 86px;
     padding-bottom: 88px;
+  }
+
+  .work-method-copy p:not(.eyebrow) {
+    margin-top: 26px;
+  }
+
+  .values-list p {
+    grid-template-columns: 42px 1fr;
+    gap: 18px;
+    padding: 24px 0;
+    font-size: 1.08rem;
   }
 
   .client-marquee-section {

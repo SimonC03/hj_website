@@ -42,7 +42,7 @@ export default function HomePage() {
               alt="HandelsJuristerna"
               className="responsive-img"
               height={800}
-              src="https://www.mannheimerswartling.se/app/uploads/2025/09/max-karlsson-och-felicity-trocme-1200x800.jpg"
+              src="https://handelsjuristerna.se/beta/wp-content/uploads/2021/02/IMG_0715.jpg"
               width={1200}
             />
           </figure>
@@ -122,15 +122,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section section-navy">
-        <div className="section-inner split">
-          <div>
-            <p className="eyebrow">Arbetssätt</p>
+      <section className="section section-navy work-method-section">
+        <div className="section-inner split work-method-layout">
+          <div className="work-method-copy">
             <h2>Senior, rak och kommersiellt förankrad rådgivning.</h2>
+            <p>
+              Vi kombinerar akademisk skärpa med ett praktiskt arbetssätt där
+              varje råd ska vara begripligt, användbart och möjligt att agera
+              på direkt.
+            </p>
           </div>
           <div className="values-list">
-            {values.map((value) => (
-              <p key={value}>{value}</p>
+            {values.map((value, index) => (
+              <p key={value}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {value}
+              </p>
             ))}
           </div>
         </div>
@@ -204,7 +211,6 @@ export default function HomePage() {
       <section className="section contact-band">
         <div className="section-inner contact-grid">
           <div>
-            <p className="eyebrow">Kontakt</p>
             <h2>Kontakta oss gärna</h2>
             <p>Ring, maila eller fyll i formuläret så hör vi av oss så fort vi kan.</p>
             <dl className="contact-details">

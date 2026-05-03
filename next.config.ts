@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         hostname: "www.mannheimerswartling.se",
         pathname: "/app/uploads/**",
       },
+      {
+        protocol: "https",
+        hostname: "handelsjuristerna.se",
+        pathname: "/beta/wp-content/uploads/**",
+      },
     ],
   },
 };
