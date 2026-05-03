@@ -477,6 +477,154 @@ select {
   max-width: 500px;
 }
 
+.about-page {
+  background: var(--white);
+  color: var(--navy-950);
+}
+
+body:has(.about-page) {
+  --header-text: var(--navy-950);
+}
+
+body:has(.about-page) .setterwalls-header.active,
+body.header-overlay-open:has(.about-page) {
+  --header-text: var(--white);
+}
+
+body:has(.about-page) .hj-header-logo {
+  filter: brightness(0) saturate(100%);
+}
+
+body:has(.about-page) .setterwalls-header.active .hj-header-logo,
+body:has(.about-page) .mobile-menu .hj-header-logo {
+  filter: none;
+}
+
+.about-page-text {
+  padding: clamp(158px, 13vw, 210px) 40px clamp(82px, 8vw, 124px);
+  background: var(--surface);
+}
+
+.about-page-text .section-title {
+  max-width: 860px;
+  font-size: clamp(3.2rem, 5.1vw, 5.7rem);
+}
+
+.about-page-lead {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 5vw, 70px);
+  margin-top: clamp(38px, 5vw, 62px);
+  padding-top: clamp(30px, 4vw, 44px);
+  border-top: 1px solid rgba(6, 23, 40, 0.14);
+}
+
+.about-page-lead p {
+  margin: 0;
+  color: var(--stone-500);
+  font-size: clamp(1.05rem, 1.24vw, 1.18rem);
+  line-height: 1.9;
+}
+
+.about-page-image-section {
+  padding: clamp(96px, 8vw, 140px) 40px clamp(112px, 9vw, 156px);
+  background: var(--white);
+}
+
+.about-page-image-grid {
+  width: min(1320px, 100%);
+  grid-template-columns: minmax(540px, 1.35fr) minmax(300px, 0.65fr);
+  gap: clamp(46px, 5.5vw, 82px);
+  align-items: center;
+}
+
+.about-page-image .responsive-img {
+  height: clamp(460px, 42vw, 640px);
+  aspect-ratio: 5 / 4;
+}
+
+.about-page-info {
+  max-width: 460px;
+}
+
+.about-page-info h2 {
+  margin: 0;
+  color: var(--navy-950);
+  font-family: var(--font-hj-serif), Georgia, serif;
+  font-size: clamp(2.35rem, 3.1vw, 3.7rem);
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.about-page-info ul {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 38px 0 0;
+  list-style: none;
+}
+
+.about-page-info li {
+  padding: 20px 0;
+  color: var(--stone-500);
+  border-top: 1px solid rgba(6, 23, 40, 0.13);
+  line-height: 1.65;
+}
+
+.about-page-info li:last-child {
+  border-bottom: 1px solid rgba(6, 23, 40, 0.13);
+}
+
+.about-page-board {
+  padding: clamp(96px, 8vw, 132px) 40px clamp(112px, 9vw, 150px);
+  background: var(--white);
+  border-top: 1px solid rgba(6, 23, 40, 0.08);
+}
+
+.about-page-board-header {
+  margin-bottom: clamp(38px, 5vw, 58px);
+}
+
+.about-page-board-header .section-title {
+  font-size: clamp(2.9rem, 4.6vw, 5rem);
+}
+
+.about-page-board-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(64px, 7vw, 110px);
+  row-gap: clamp(38px, 4.4vw, 58px);
+}
+
+.about-page-board-member {
+  display: block;
+}
+
+.about-page-board-member h3 {
+  margin: 0;
+  color: var(--navy-950);
+  font-family: var(--font-hj-serif), Georgia, serif;
+  font-size: clamp(1.5rem, 1.9vw, 2rem);
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.about-page-board-member span {
+  display: block;
+  margin-top: 10px;
+  color: rgba(113, 105, 95, 0.82);
+  font-size: 0.96rem;
+  font-weight: 550;
+  line-height: 1.45;
+}
+
+.about-page-board-member p {
+  max-width: 44ch;
+  margin: 18px 0 0;
+  color: var(--stone-500);
+  line-height: 1.75;
+}
+
 .module-component_content {
   padding: clamp(112px, 8.5vw, 148px) 40px;
 }
@@ -1648,6 +1796,16 @@ select {
     aspect-ratio: 3 / 2;
   }
 
+  .about-page-lead,
+  .about-page-image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page-image .responsive-img {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
   .expertise-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 34px;
@@ -1739,12 +1897,42 @@ select {
   }
 
   .about-firm-section,
+  .about-page-text,
+  .about-page-image-section,
+  .about-page-board,
   .main-partners-section,
   .expertise-section,
   .section.section-navy,
   .section.contact-band {
     padding-top: 86px;
     padding-bottom: 88px;
+  }
+
+  .about-page-text {
+    padding-top: 126px;
+  }
+
+  .about-page-text,
+  .about-page-image-section {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .about-page-lead {
+    gap: 24px;
+  }
+
+  .about-page-info ul {
+    margin-top: 28px;
+  }
+
+  .about-page-board-list {
+    grid-template-columns: 1fr;
+    row-gap: 34px;
+  }
+
+  .about-page-board-member p {
+    max-width: none;
   }
 
   .work-method-copy p:not(.eyebrow) {
