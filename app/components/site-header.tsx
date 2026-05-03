@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { firm } from "@/app/data/site";
 
@@ -59,11 +60,17 @@ const mainMenu: MenuItem[] = [
   },
 ];
 
-function HeaderLogo({ className = "" }: { className?: string }) {
+function HeaderLogo({
+  className = "",
+  src = "/logos/full-white.png",
+}: {
+  className?: string;
+  src?: string;
+}) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/logos/full-white.png"
+      src={src}
       alt={firm.displayName}
       className={`hj-header-logo ${className}`}
       style={{ objectFit: "contain", objectPosition: "left center" }}
@@ -129,13 +136,15 @@ function MenuList({
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMobileItem, setOpenMobileItem] = useState<string | null>(null);
   const lastScrollY = useRef(0);
 
-  const overlayOpen = isMenuOpen;
+  const isAboutPage = pathname === "/om-oss";
+  const logoSrc = isAboutPage ? "/logos/full-black.png" : "/logos/full-white.png";
 
   const closeAll = () => {
     setIsMenuOpen(false);
@@ -160,12 +169,6 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    document.body.classList.toggle("header-overlay-open", overlayOpen);
-
-    return () => document.body.classList.remove("header-overlay-open");
-  }, [overlayOpen]);
-
-  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         closeAll();
@@ -183,21 +186,14 @@ export function SiteHeader() {
 
   return (
     <>
-      <button
-        aria-label="Stäng meny"
-        className={`header-overlay${overlayOpen ? " active" : ""}`}
-        onClick={closeAll}
-        type="button"
-      />
-
       <header
         className={`site-header setterwalls-header${isScrolled ? " sticky" : ""}${
-          isHidden && !overlayOpen ? " hidden" : ""
+          isHidden && !isMenuOpen ? " hidden" : ""
         }${isMenuOpen ? " active" : ""}`}
       >
         <div className="header-container">
           <Link className="logotype" href="/" onClick={closeAll}>
-            <HeaderLogo />
+            <HeaderLogo src={logoSrc} />
           </Link>
 
           <div className="menu-right">
@@ -230,7 +226,7 @@ export function SiteHeader() {
           className={`mobile-menu${isMenuOpen ? " open" : ""}`}
         >
           <Link className="logotype logotype--mobile" href="/" onClick={closeAll}>
-            <HeaderLogo />
+            <HeaderLogo src={logoSrc} />
           </Link>
 
           <MenuList

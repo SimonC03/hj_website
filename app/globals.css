@@ -62,7 +62,6 @@
   --footer-heading: var(--header-text);
   --footer-border: var(--orange-600);
   --header-text: var(--white);
-  --header-overlay-bg: rgba(18, 25, 40, 0.5);
   --header-underline: var(--orange-600);
   --header-menu-bg: var(--navy-950);
   --header-watermark: var(--white-04);
@@ -486,18 +485,8 @@ body:has(.about-page) {
   --header-text: var(--navy-950);
 }
 
-body:has(.about-page) .setterwalls-header.active,
-body.header-overlay-open:has(.about-page) {
+body:has(.about-page) .setterwalls-header.active {
   --header-text: var(--white);
-}
-
-body:has(.about-page) .hj-header-logo {
-  filter: brightness(0) saturate(100%);
-}
-
-body:has(.about-page) .setterwalls-header.active .hj-header-logo,
-body:has(.about-page) .mobile-menu .hj-header-logo {
-  filter: none;
 }
 
 .about-page-text {
@@ -2081,25 +2070,6 @@ body:has(.about-page) .mobile-menu .hj-header-logo {
 }
 
 /* Setterwalls-style header */
-body.header-overlay-open {
-  overflow: hidden;
-}
-
-.header-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 998;
-  display: none;
-  padding: 0;
-  background: var(--header-overlay-bg);
-  border: 0;
-  cursor: pointer;
-}
-
-.header-overlay.active {
-  display: block;
-}
-
 .site-header.setterwalls-header {
   position: fixed;
   top: 0;
