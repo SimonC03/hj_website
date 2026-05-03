@@ -35,6 +35,93 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="module-component module-component_content about-firm-section">
+        <div className="wrapper content-module_width-medium">
+          <figure className="content-module_thumbnail">
+            <Image
+              alt="HandelsJuristerna"
+              className="responsive-img"
+              height={800}
+              src="https://www.mannheimerswartling.se/app/uploads/2025/09/max-karlsson-och-felicity-trocme-1200x800.jpg"
+              width={1200}
+            />
+          </figure>
+          <div className="content-module_wrapper">
+            <h2 className="content-module_title section-title">Om oss</h2>
+            <div className="content-module_content article-text text-flow">
+              <p className="preamble-large">
+                Som Sveriges största studentdrivna juristbyrå bistår vi
+                företag, organisationer och privatpersoner med kvalificerad
+                juridisk rådgivning. Med stark akademisk förankring och ett
+                nära samarbete utvecklar vi lösningar som är tydliga,
+                tillgängliga och hållbara.
+              </p>
+            </div>
+            <footer className="content-module_footer">
+              <Link className="button button-primary" href="/om-oss">
+                Om byrån
+              </Link>
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="module-component module-component_content main-partners-section"
+        aria-labelledby="main-partners-title"
+      >
+        <div className="wrapper content-module_width-narrow">
+          <div className="content-module_wrapper content-module_wrapper-center">
+            <h2
+              className="content-module_title section-title"
+              id="main-partners-title"
+            >
+              Huvudpartners
+            </h2>
+            <div className="content-module_content article-text text-flow">
+              <p className="preamble-large">
+                Våra huvudpartners stärker HandelsJuristerna genom långsiktiga
+                samarbeten, kunskapsutbyte och möjligheter för våra medarbetare
+                att möta näringslivet på riktigt.
+              </p>
+            </div>
+          </div>
+
+          {footerData.partners.length > 0 ? (
+            <div className="main-partners-grid" aria-label="Huvudpartners">
+              {footerData.partners.map((partner) => {
+                const logo = (
+                  <Image
+                    alt={`${partner.name} logo`}
+                    className="main-partner-logo"
+                    height={partner.height}
+                    src={partner.logo}
+                    width={partner.width}
+                  />
+                );
+
+                return partner.href ? (
+                  <a
+                    aria-label={`Besök ${partner.name}`}
+                    className="main-partner-link"
+                    href={partner.href}
+                    key={partner.name}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {logo}
+                  </a>
+                ) : (
+                  <div className="main-partner-link" key={partner.name}>
+                    {logo}
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
+        </div>
+      </section>
+
       <section className="section section-navy">
         <div className="section-inner split">
           <div>
@@ -49,81 +136,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section about-firm-section">
-        <div className="section-inner about-firm-content">
-          <h2>En ledande studentdriven byrå</h2>
-          <p>
-            Som Sveriges största studentdrivna juristbyrå bistår vi företag,
-            organisationer och privatpersoner med kvalificerad juridisk
-            rådgivning. Med stark akademisk förankring och ett nära samarbete
-            utvecklar vi lösningar som är tydliga, tillgängliga och hållbara.
-          </p>
-          <footer>
-            <Link className="button button-primary" href="/om-oss">
-              Om byrån
-            </Link>
-          </footer>
-        </div>
-      </section>
-
       <section
-  className="section main-partners-section"
-  aria-labelledby="main-partners-title"
->
-  <div className="section-inner main-partners-content">
-    <div className="main-partners-copy">
-      <p className="eyebrow">Huvudpartners</p>
-
-      <h2 id="main-partners-title">
-        Tillsammans med våra huvudpartners
-      </h2>
-
-      <p>
-        Våra huvudpartners är med och stärker HandelsFöretagen genom
-        långsiktiga samarbeten, kunskapsutbyte och möjligheter för våra
-        medlemmar att möta näringslivet på riktigt.
-      </p>
-    </div>
-
-    {footerData.partners.length > 0 ? (
-      <div className="main-partners-grid">
-        {footerData.partners.map((partner) => {
-          const logo = (
-            <Image
-              alt={`${partner.name} logo`}
-              className="main-partner-logo"
-              height={partner.height}
-              src={partner.logo}
-              width={partner.width}
-            />
-          );
-
-          return partner.href ? (
-            <a
-              aria-label={`Besök ${partner.name}`}
-              className="main-partner-link"
-              href={partner.href}
-              key={partner.name}
-              rel="noopener noreferrer"
-              target="_blank"
+        className="module-component module-component_content expertise-section"
+        aria-labelledby="expertise-title"
+      >
+        <div className="wrapper content-module_width-medium expertise-module">
+          <div className="content-module_wrapper">
+            <h2
+              className="content-module_title section-title"
+              id="expertise-title"
             >
-              {logo}
-            </a>
-          ) : (
-            <div className="main-partner-link" key={partner.name}>
-              {logo}
+              Expertisområden
+            </h2>
+            <div className="content-module_content article-text text-flow">
+              <p className="preamble-large">
+                Vi hjälper företag, organisationer och privatpersoner med
+                tydlig juridisk rådgivning inom våra centrala områden.
+              </p>
             </div>
-          );
-        })}
-      </div>
-    ) : null}
-  </div>
-</section>
-
-      <section className="section expertise-section">
-        <div className="section-inner expertise-heading">
-          <p className="eyebrow">Expertisområden</p>
-          <h2>Våra tjänster</h2>
+          </div>
         </div>
 
         <div className="section-inner expertise-grid">

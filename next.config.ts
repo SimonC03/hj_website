@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "data.maglr.com",
         pathname: "/3591/issues/38791/710263/assets/media/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.mannheimerswartling.se",
+        pathname: "/app/uploads/**",
+      },
     ],
   },
 };
