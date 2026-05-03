@@ -19,13 +19,10 @@ export const footerData = {
     facebook: "https://www.facebook.com/dittforetag/",
   },
   navItems: [
-    { label: "Kompetensområden", href: "/kompetensomraden" },
-    { label: "Priser", href: "/priser" },
-    { label: "Karriär", href: "/karriar" },
-    { label: "Nyheter", href: "/nyheter" },
-    { label: "Om oss", href: "/om-oss" },
+    { label: "Expertisområden", href: "/expertis" },
     { label: "Medarbetare", href: "/medarbetare" },
-    { label: "Policyer", href: "/policyer" },
+    { label: "Om oss", href: "/om-oss" },
+    { label: "Kontakt", href: "/kontakt" },
   ],
   office: {
     city: "Göteborg",

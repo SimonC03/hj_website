@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { useActionState, useEffect, useRef } from "react";
 import {
   sendContactForm,
@@ -69,8 +68,8 @@ export function ContactForm() {
       <label className="contact-consent">
         <input name="Villkor" required type="checkbox" />
         <span>
-          Jag accepterar{" "}
-          <Link href="/integritetspolicy">villkoren</Link>
+          Jag accepterar att HandelsJuristerna behandlar uppgifterna för att
+          hantera min förfrågan.
         </span>
       </label>
 

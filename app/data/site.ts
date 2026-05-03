@@ -7,14 +7,6 @@ export const firm = {
   address: "Viktoriagatan 9, 411 25 Göteborg",
 };
 
-export const navItems = [
-  { label: "Expertis", href: "/expertis" },
-  { label: "Medarbetare", href: "/medarbetare" },
-  { label: "Aktuellt", href: "/aktuellt" },
-  { label: "Om oss", href: "/om-oss" },
-  { label: "Kontakt", href: "/kontakt" },
-];
-
 export const practiceAreas = [
   {
     title: "Bolagsrätt",
@@ -51,61 +43,6 @@ export const practiceAreas = [
     description:
       "Rådgivning kring efterlevnad, risk och styrning i reglerade eller föränderliga branscher.",
     tags: ["Compliance", "Risk", "Tillstånd"],
-  },
-];
-
-export const highlights = [
-  { value: "18+", label: "års erfarenhet från affärsjuridik" },
-  { value: "6", label: "fokuserade expertisområden" },
-  { value: "24h", label: "respons i prioriterade ärenden" },
-];
-
-export const people = [
-  {
-    name: "Helena Jansson",
-    role: "Partner, M&A och bolagsrätt",
-    email: "helena.jansson@hjadvokatbyra.se",
-  },
-  {
-    name: "Jonas Holm",
-    role: "Partner, tvistlösning",
-    email: "jonas.holm@hjadvokatbyra.se",
-  },
-  {
-    name: "Mira Lind",
-    role: "Senior Associate, kommersiella avtal",
-    email: "mira.lind@hjadvokatbyra.se",
-  },
-];
-
-export const insights = [
-  {
-    type: "Artikel",
-    date: "12 april 2026",
-    title: "Tre avtalsklausuler som ofta avgör en kommersiell tvist",
-  },
-  {
-    type: "Nyhet",
-    date: "28 mars 2026",
-    title: "HJ stärker erbjudandet inom transaktioner och ägarfrågor",
-  },
-  {
-    type: "Analys",
-    date: "5 mars 2026",
-    title: "Så bör styrelsen dokumentera beslut i osäkra marknadslägen",
-  },
-];
-
-export const offices = [
-  {
-    city: "Stockholm",
-    address: "Birger Jarlsgatan 12, 114 34 Stockholm",
-    phone: "+46 8 410 000 00",
-  },
-  {
-    city: "Göteborg",
-    address: "Östra Hamngatan 16, 411 09 Göteborg",
-    phone: "+46 31 300 00 10",
   },
 ];
 

@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/app/components/page-intro";
 import { practiceAreas } from "@/app/data/site";
+import { PriceList } from "./price-list";
 
 export const metadata: Metadata = {
-  title: "Expertis",
+  title: "Expertisområden",
   description:
-    "Expertisområden inom bolagsrätt, transaktioner, tvistlösning, kommersiella avtal, fastigheter och regulatorik.",
+    "Expertisområden och fasta från-priser för juridiska tjänster hos Handelsjuristerna.",
 };
 
 export default function ExpertisePage() {
   return (
     <>
       <PageIntro
-        eyebrow="Expertis"
-        title="Affärsjuridik som möter frågan där den faktiskt uppstår."
+        eyebrow="Expertisområden"
+        title="Juridisk rådgivning med tydliga områden och priser."
       >
         <p>
           Våra uppdrag börjar ofta i ett konkret affärsbeslut. Därför organiserar
-          vi rådgivningen runt klientens situation, riskbild och tidsplan.
+          vi rådgivningen runt klientens situation, riskbild och tidsplan. Längre
+          ned hittar du också våra från-priser för vanliga juridiska ärenden.
         </p>
       </PageIntro>
 
@@ -36,6 +38,8 @@ export default function ExpertisePage() {
           ))}
         </div>
       </section>
+
+      <PriceList />
     </>
   );
 }

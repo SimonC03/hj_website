@@ -46,15 +46,6 @@
   --section-dark-text: var(--white);
   --section-dark-muted: var(--white-86);
   --section-dark-accent: var(--gold-200);
-  --testimonials-bg: var(--navy-950);
-  --testimonials-card-bg: var(--navy-900);
-  --testimonials-heading: var(--white);
-  --testimonials-text: var(--white-92);
-  --testimonials-muted: var(--white-68);
-  --testimonials-accent: var(--orange-500);
-  --testimonials-icon: var(--gold-200);
-  --testimonials-border: var(--white-14);
-  --testimonials-control-border: var(--white-24);
   --footer-bg: var(--platform-dark-blue);
   --footer-text: var(--white);
   --footer-muted: var(--white-72);
@@ -171,7 +162,6 @@ select {
 .primary-nav a,
 .footer-list a,
 .text-link,
-.insight-card a,
 .practice-card a,
 .person-card a,
 .office-list a,
@@ -188,7 +178,6 @@ select {
 .primary-nav a:hover,
 .footer-list a:hover,
 .text-link:hover,
-.insight-card a:hover,
 .practice-card a:hover,
 .person-card a:hover,
 .office-list a:hover,
@@ -869,176 +858,6 @@ body:has(.about-page) .setterwalls-header.active {
   color: var(--orange-600);
 }
 
-.testimonials-section {
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(231, 209, 168, 0.06) 1px, transparent 1px),
-    linear-gradient(180deg, #061728 0%, #0b2038 100%);
-  background-size:
-    88px 88px,
-    auto;
-  color: var(--testimonials-text);
-}
-
-.testimonials-container {
-  position: relative;
-}
-
-.testimonials-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: 36px;
-  align-items: end;
-  margin-bottom: 34px;
-}
-
-.testimonials-title {
-  max-width: 760px;
-}
-
-.testimonials-section .testimonials-header h2 {
-  color: var(--testimonials-heading);
-  font-size: clamp(2.8rem, 4.1vw, 4.4rem);
-  line-height: 1.04;
-}
-
-.testimonials-lead {
-  max-width: 34ch;
-  margin: 0;
-  color: var(--white-72);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.testimonial-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 300px;
-  gap: 42px;
-  padding: 30px;
-  overflow: hidden;
-  background: rgba(251, 248, 242, 0.045);
-  border: 1px solid rgba(231, 209, 168, 0.2);
-  border-radius: 6px;
-  box-shadow: 0 18px 42px rgba(2, 10, 20, 0.18);
-  transition:
-    border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.testimonial-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  background: var(--orange-600);
-  opacity: 0.86;
-}
-
-.testimonial-card::after {
-  content: "”";
-  position: absolute;
-  top: 22px;
-  right: 28px;
-  color: rgba(231, 209, 168, 0.16);
-  font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: 7rem;
-  line-height: 0.8;
-  pointer-events: none;
-}
-
-.testimonial-card:hover {
-  border-color: rgba(231, 209, 168, 0.36);
-  box-shadow: 0 22px 52px rgba(2, 10, 20, 0.24);
-  transform: translateY(-2px);
-}
-
-.testimonial-card-copy {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 22px;
-}
-
-.testimonial-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  color: var(--gold-200);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
-.testimonial-meta span + span {
-  position: relative;
-  padding-left: 12px;
-}
-
-.testimonial-meta span + span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 1px;
-  height: 12px;
-  background: rgba(231, 209, 168, 0.32);
-  transform: translateY(-50%);
-}
-
-.testimonial-text {
-  margin: 0;
-  max-width: 27ch;
-  color: var(--testimonials-heading);
-  font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: clamp(1.42rem, 1.85vw, 1.86rem);
-  font-weight: 500;
-  line-height: 1.28;
-}
-
-.testimonial-person {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(231, 209, 168, 0.2);
-}
-
-.testimonial-person cite {
-  display: block;
-  margin-bottom: 0;
-  color: var(--testimonials-heading);
-  font-style: normal;
-  font-size: 1rem;
-  font-weight: 750;
-  line-height: 1.3;
-}
-
-.testimonial-person span {
-  display: block;
-  color: var(--testimonials-muted);
-  font-size: 0.92rem;
-  font-weight: 500;
-  line-height: 1.35;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1049,12 +868,6 @@ body:has(.about-page) .setterwalls-header.active {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .testimonial-card {
-    transition: none;
-  }
 }
 
 .card-grid {
@@ -1070,7 +883,6 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .practice-card,
-.insight-card,
 .person-card,
 .contact-panel,
 .office-list article {
@@ -1101,7 +913,6 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .practice-card a,
-.insight-card a,
 .text-link {
   margin-top: auto;
   color: var(--navy-950);
@@ -1272,41 +1083,6 @@ body:has(.about-page) .setterwalls-header.active {
 
 .section-muted {
   background: var(--white);
-}
-
-.insight-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 36px;
-}
-
-.insight-grid.all {
-  margin-top: 0;
-}
-
-.insight-card {
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  padding: 28px;
-}
-
-.insight-card p {
-  margin: 0 0 18px;
-  color: var(--orange-600);
-  font-size: 0.84rem;
-  font-weight: 800;
-}
-
-.insight-card h2,
-.insight-card h3 {
-  margin: 0;
-  color: var(--navy-950);
-  font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: 1.72rem;
-  font-weight: 600;
-  line-height: 1.12;
 }
 
 .contact-band {
@@ -1800,24 +1576,10 @@ body:has(.about-page) .setterwalls-header.active {
     column-gap: 34px;
   }
 
-  .testimonials-header {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .testimonials-lead {
-    max-width: 42ch;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .card-grid,
   .card-grid.wide,
   .people-grid,
   .people-grid.full,
-  .insight-grid,
   .footer-grid,
   .site-footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1952,36 +1714,6 @@ body:has(.about-page) .setterwalls-header.active {
     font-size: 2.45rem;
   }
 
-  .testimonials-header {
-    margin-bottom: 28px;
-  }
-
-  .testimonials-lead {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .testimonial-card {
-    min-height: 280px;
-    gap: 40px;
-    padding: 26px;
-    border-radius: 6px;
-  }
-
-  .testimonial-text {
-    font-size: 1.42rem;
-    line-height: 1.3;
-  }
-
-  .testimonial-person {
-    gap: 10px;
-  }
-
   .stats-band {
     padding: 0;
   }
@@ -1994,7 +1726,6 @@ body:has(.about-page) .setterwalls-header.active {
   .card-grid.wide,
   .people-grid,
   .people-grid.full,
-  .insight-grid,
   .footer-grid,
   .site-footer-grid {
     grid-template-columns: 1fr;
@@ -2202,8 +1933,7 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .setterwalls-header .setterwalls-navbar ul,
-.setterwalls-header .mobile-nav-list,
-.setterwalls-header .sub-menu {
+.setterwalls-header .mobile-nav-list {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -2233,8 +1963,7 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .setterwalls-header .setterwalls-navbar a::before,
-.setterwalls-header .mobile-menu a::before,
-.setterwalls-header .mobile-menu button::before {
+.setterwalls-header .mobile-menu a::before {
   content: "";
   position: absolute;
   right: 0;
@@ -2252,7 +1981,7 @@ body:has(.about-page) .setterwalls-header.active {
 
 .setterwalls-header .setterwalls-navbar a:hover::before,
 .setterwalls-header .mobile-menu a:hover::before,
-.setterwalls-header .mobile-menu button:hover::before {
+.setterwalls-header .mobile-menu a[aria-current="page"]::before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -2366,8 +2095,7 @@ body:has(.about-page) .setterwalls-header.active {
   font-size: 20px;
 }
 
-.setterwalls-header .mobile-menu a,
-.setterwalls-header .menu-accordion-trigger {
+.setterwalls-header .mobile-menu a {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -2385,38 +2113,8 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .setterwalls-header .mobile-menu a::before,
-.setterwalls-header .mobile-menu button::before {
+.setterwalls-header .mobile-nav-list > li.active a::before {
   bottom: -9px;
-}
-
-.setterwalls-header .menu-item-has-children > .menu-accordion-trigger::after {
-  content: "";
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: translateY(-3px) rotate(45deg);
-  transition: transform 200ms ease;
-}
-
-.setterwalls-header .menu-item-has-children.active > .menu-accordion-trigger::after {
-  transform: translateY(2px) rotate(225deg);
-}
-
-.setterwalls-header .mobile-menu .sub-menu {
-  display: none;
-  padding-top: 30px;
-  padding-left: 30px;
-}
-
-.setterwalls-header .mobile-menu .sub-menu.active {
-  display: grid;
-  gap: 18px;
-}
-
-.setterwalls-header .mobile-menu .sub-menu a {
-  font-size: 20px;
-  font-weight: 400;
 }
 
 @media (max-width: 1200px) {
@@ -2466,8 +2164,7 @@ body:has(.about-page) .setterwalls-header.active {
     padding-bottom: 80px;
   }
 
-  .setterwalls-header .mobile-menu a,
-  .setterwalls-header .menu-accordion-trigger {
+  .setterwalls-header .mobile-menu a {
     width: 100%;
     font-size: 20px;
   }

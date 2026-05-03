@@ -8,56 +8,19 @@ import { firm } from "@/app/data/site";
 type MenuItem = {
   label: string;
   href: string;
-  children?: MenuItem[];
 };
 
 const quickNav = [
   { label: "EXPERTISOMRÅDEN", href: "/expertis" },
-  { label: "PRISER", href: "/priser" },
   { label: "MEDARBETARE", href: "/medarbetare" },
 ];
 
 const mainMenu: MenuItem[] = [
-  {
-    label: "Vår expertis",
-    href: "/expertis",
-    children: [
-      { label: "Verksamhetsområden", href: "/expertis" },
-      { label: "Bransch", href: "/expertis" },
-      { label: "International desks", href: "/expertis" },
-      { label: "ESG i rådgivningen", href: "/expertis" },
-    ],
-  },
-  { label: "Priser", href: "/priser" },
+  { label: "Startsida", href: "/" },
+  { label: "Expertisområden", href: "/expertis" },
   { label: "Medarbetare", href: "/medarbetare" },
-  {
-    label: "Aktuellt",
-    href: "/aktuellt",
-    children: [
-      { label: "Artiklar", href: "/aktuellt" },
-      { label: "Nyheter", href: "/aktuellt" },
-      { label: "Event", href: "/aktuellt" },
-      { label: "Uppdrag", href: "/aktuellt" },
-    ],
-  },
-  {
-    label: "Om oss",
-    href: "/om-oss",
-    children: [
-      { label: "Om oss", href: "/om-oss" },
-      { label: "Erbjudande", href: "/om-oss" },
-      { label: "Hållbarhet", href: "/om-oss" },
-      { label: "Värdegrund", href: "/om-oss" },
-    ],
-  },
-  {
-    label: "Kontakt",
-    href: "/kontakt",
-    children: [
-      { label: "Kontor", href: "/kontakt" },
-      { label: "Presskontakt", href: "/kontakt" },
-    ],
-  },
+  { label: "Om oss", href: "/om-oss" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 function HeaderLogo({
@@ -80,54 +43,29 @@ function HeaderLogo({
 
 function MenuList({
   items,
-  openItem,
-  onToggle,
   onNavigate,
+  pathname,
 }: {
   items: MenuItem[];
-  openItem: string | null;
-  onToggle: (label: string) => void;
   onNavigate: () => void;
+  pathname: string;
 }) {
   return (
     <ul className="mobile-nav-list">
       {items.map((item) => {
-        const isOpen = openItem === item.label;
-        const hasChildren = Boolean(item.children?.length);
+        const isCurrent =
+          pathname === item.href ||
+          (item.href !== "/" && pathname.startsWith(`${item.href}/`));
 
         return (
-          <li
-            className={`menu-item${hasChildren ? " menu-item-has-children" : ""}${
-              isOpen ? " active" : ""
-            }`}
-            key={item.label}
-          >
-            {hasChildren ? (
-              <button
-                aria-expanded={isOpen}
-                className="menu-accordion-trigger"
-                onClick={() => onToggle(item.label)}
-                type="button"
-              >
-                {item.label}
-              </button>
-            ) : (
-              <Link href={item.href} onClick={onNavigate}>
-                {item.label}
-              </Link>
-            )}
-
-            {hasChildren && (
-              <ul className={`sub-menu${isOpen ? " active" : ""}`}>
-                {item.children?.map((child) => (
-                  <li key={`${item.label}-${child.label}`}>
-                    <Link href={child.href} onClick={onNavigate}>
-                      {child.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+          <li className={`menu-item${isCurrent ? " active" : ""}`} key={item.label}>
+            <Link
+              aria-current={isCurrent ? "page" : undefined}
+              href={item.href}
+              onClick={onNavigate}
+            >
+              {item.label}
+            </Link>
           </li>
         );
       })}
@@ -140,7 +78,6 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openMobileItem, setOpenMobileItem] = useState<string | null>(null);
   const lastScrollY = useRef(0);
 
   const isAboutPage = pathname === "/om-oss";
@@ -148,7 +85,6 @@ export function SiteHeader() {
 
   const closeAll = () => {
     setIsMenuOpen(false);
-    setOpenMobileItem(null);
   };
 
   useEffect(() => {
@@ -232,10 +168,7 @@ export function SiteHeader() {
           <MenuList
             items={mainMenu}
             onNavigate={closeAll}
-            onToggle={(label) =>
-              setOpenMobileItem((current) => (current === label ? null : label))
-            }
-            openItem={openMobileItem}
+            pathname={pathname}
           />
         </nav>
       </header>
