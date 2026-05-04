@@ -13,12 +13,14 @@ type MenuItem = {
 const quickNav = [
   { label: "EXPERTISOMRÅDEN", href: "/expertis" },
   { label: "MEDARBETARE", href: "/medarbetare" },
+  { label: "KARRIÄR", href: "/karriar" },
 ];
 
 const mainMenu: MenuItem[] = [
   { label: "Startsida", href: "/" },
   { label: "Expertisområden", href: "/expertis" },
   { label: "Medarbetare", href: "/medarbetare" },
+  { label: "Karriär", href: "/karriar" },
   { label: "Om oss", href: "/om-oss" },
   { label: "Kontakt", href: "/kontakt" },
 ];
@@ -80,7 +82,10 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
-  const usesLightHeader = pathname === "/om-oss" || pathname === "/expertis";
+  const usesLightHeader =
+    pathname === "/om-oss" ||
+    pathname === "/expertis" ||
+    pathname === "/karriar";
   const logoSrc = usesLightHeader ? "/logos/full-black.png" : "/logos/full-white.png";
 
   const closeAll = () => {
