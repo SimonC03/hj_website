@@ -8,19 +8,15 @@ export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <video
+        <Image
+          alt=""
           aria-hidden="true"
-          autoPlay
           className="hero-media"
-          loop
-          muted
-          playsInline
-        >
-          <source
-            src="https://www.mannheimerswartling.se/app/uploads/2026/02/MSA_Hemsida-Film_Vinter-2026_v2_WEB.mp4"
-            type="video/mp4"
-          />
-        </video>
+          fill
+          priority
+          sizes="100vw"
+          src="/images/hero.jpg"
+        />
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
           <h1>
