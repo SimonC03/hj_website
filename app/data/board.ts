@@ -6,45 +6,33 @@ export type BoardMember = {
 
 export const boardMembers: BoardMember[] = [
   {
-    name: "Dino Sljivo",
-    role: "Ordförande",
+    name: "Christoffer Thorell",
+    role: "Styrelseordförande",
     description:
-      "Ansvarar för byråns övergripande riktning och långsiktiga utveckling.",
+      "Christoffer är tidigare VD på HandelsJuristerna och han läser nu sin sista termin på juristprogrammet.",
   },
   {
-    name: "Patricia Chantino Tellin",
-    role: "Vice ordförande",
+    name: "Peter Björnram",
+    role: "Styrelseledamot",
     description:
-      "Bidrar med operativ styrning och utveckling av byråns interna arbete.",
+      "Peter har tidigare varit VD på Ackordscentralen och ett riskkapitalbolag. Idag jobbar han som advokat på Dnovo.",
   },
   {
-    name: "Robin Bozrgpour",
-    role: "Ekonomiansvarig",
+    name: "Minna Skyman",
+    role: "Styrelseledamot",
     description:
-      "Arbetar med ekonomisk uppföljning och struktur i styrelsens beslut.",
+      "Idag jobbar Minna som VD på Setterwalls i Göteborg och har tidigare haft andra styrelseuppdrag.",
   },
   {
-    name: "Evelina Regius",
-    role: "Ledamot",
+    name: "Björn Nicolai",
+    role: "Styrelseledamot",
     description:
-      "Bidrar med fokus på affärsområden, klientarbete och kvalitet.",
+      "Björn har suttit med alla år i HandelsJuristernas styrelse. Idag är Björn advokat och partner på advokatfirman Vinge.",
   },
   {
-    name: "Rima El-Dawi",
-    role: "Ledamot",
+    name: "Robin Olsen",
+    role: "Styrelseledamot",
     description:
-      "Arbetar med frågor kopplade till organisation, medarbetare och kultur.",
-  },
-  {
-    name: "Adam Svensson",
-    role: "Ledamot",
-    description:
-      "Bidrar med perspektiv på klientrelationer och externa samarbeten.",
-  },
-  {
-    name: "Olivia Krantz",
-    role: "Ledamot",
-    description:
-      "Arbetar med byråns kommunikation, varumärke och synlighet.",
+      "Robin arbetar som konsult inom digital marknadsföring i sitt egna bolag Olsen Marketing.",
   },
 ];

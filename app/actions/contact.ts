@@ -1,7 +1,8 @@
 "use server";
 
 import nodemailer from "nodemailer";
-import { firm } from "@/app/data/site";
+import { firm, legalTerms } from "@/app/data/site";
+import { siteUrl } from "@/app/lib/seo";
 
 export type ContactFormState = {
   status: "idle" | "success" | "error";
@@ -85,12 +86,15 @@ export async function sendContactForm(
   });
 
   const subject = `Nytt ärende från ${name}`;
+  const termsUrl = new URL(legalTerms.href, siteUrl).toString();
   const text = [
     "Nytt ärende via hemsidan",
     "",
     `Namn: ${name}`,
     `Telefonnummer: ${phone}`,
     `E-post: ${email}`,
+    `${legalTerms.label}: Accepterade`,
+    `Länk till ${legalTerms.label.toLowerCase()}: ${termsUrl}`,
     "",
     "Meddelande:",
     message,
@@ -101,6 +105,8 @@ export async function sendContactForm(
     <p><strong>Namn:</strong> ${escapeHtml(name)}</p>
     <p><strong>Telefonnummer:</strong> ${escapeHtml(phone)}</p>
     <p><strong>E-post:</strong> ${escapeHtml(email)}</p>
+    <p><strong>${escapeHtml(legalTerms.label)}:</strong> Accepterade</p>
+    <p><a href="${escapeHtml(termsUrl)}">${escapeHtml(legalTerms.label)}</a></p>
     <p><strong>Meddelande:</strong></p>
     <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
   `;

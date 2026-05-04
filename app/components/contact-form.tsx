@@ -6,6 +6,7 @@ import {
   sendContactForm,
   type ContactFormState,
 } from "@/app/actions/contact";
+import { legalTerms } from "@/app/data/site";
 
 const initialState: ContactFormState = {
   status: "idle",
@@ -68,8 +69,11 @@ export function ContactForm() {
       <label className="contact-consent">
         <input name="Villkor" required type="checkbox" />
         <span>
-          Jag accepterar att HandelsJuristerna behandlar uppgifterna för att
-          hantera min förfrågan.
+          Jag accepterar HandelsJuristernas{" "}
+          <a href={legalTerms.href} target="_blank" rel="noopener noreferrer">
+            allmänna villkor
+          </a>{" "}
+          och att uppgifterna behandlas för att hantera min förfrågan.
         </span>
       </label>
 

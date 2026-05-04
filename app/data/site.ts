@@ -7,6 +7,11 @@ export const firm = {
   address: "Viktoriagatan 9, 411 25 Göteborg",
 };
 
+export const legalTerms = {
+  label: "Allmänna villkor",
+  href: "/Allmanna-villkor-HandelsJuristerna.pdf",
+};
+
 export const practiceAreas = [
   {
     title: "Bolagsrätt",

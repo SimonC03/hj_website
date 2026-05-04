@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { legalTerms } from "@/app/data/site";
 
 type Office = {
   city: string;
@@ -24,6 +25,7 @@ export const footerData = {
     { label: "Karriär", href: "/karriar" },
     { label: "Om oss", href: "/om-oss" },
     { label: "Kontakt", href: "/kontakt" },
+    legalTerms,
   ],
   office: {
     city: "Göteborg",
