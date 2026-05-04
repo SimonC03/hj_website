@@ -86,7 +86,7 @@ export function SiteHeader() {
     pathname === "/om-oss" ||
     pathname === "/expertis" ||
     pathname === "/karriar";
-  const logoSrc = usesLightHeader ? "/logos/full-black.png" : "/logos/full-white.png";
+  const headerLogoSrc = usesLightHeader ? "/logos/full-black.png" : "/logos/full-white.png";
 
   const closeAll = () => {
     setIsMenuOpen(false);
@@ -134,7 +134,7 @@ export function SiteHeader() {
       >
         <div className="header-container">
           <Link className="logotype" href="/" onClick={closeAll}>
-            <HeaderLogo src={logoSrc} />
+            <HeaderLogo src={headerLogoSrc} />
           </Link>
 
           <div className="menu-right">
@@ -167,7 +167,7 @@ export function SiteHeader() {
           className={`mobile-menu${isMenuOpen ? " open" : ""}`}
         >
           <Link className="logotype logotype--mobile" href="/" onClick={closeAll}>
-            <HeaderLogo src={logoSrc} />
+            <HeaderLogo src="/logos/full-white.png" />
           </Link>
 
           <MenuList
