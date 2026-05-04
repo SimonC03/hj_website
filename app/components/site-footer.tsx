@@ -11,7 +11,7 @@ type Office = {
 export const footerData = {
   brandName: "HandelsJuristerna",
   aboutText:
-    "Handelsjuristerna är en juristbyrå driven av juriststudenter från Handelshögskolan i Göteborg. Vår vision är att vara den flexibla och okomplicerade byrån som gör juridiken lättillgänglig för såväl företag som privatpersoner.",
+    "HandelsJuristerna är en juristbyrå driven av juriststudenter från Handelshögskolan i Göteborg. Vår vision är att vara den flexibla och okomplicerade byrån som gör juridiken lättillgänglig för såväl företag som privatpersoner.",
   copyrightYear: new Date().getFullYear(),
   socials: {
     linkedin: "https://www.linkedin.com/company/ditt-foretag/",

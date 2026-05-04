@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { MainPartnersSection } from "@/app/components/main-partners-section";
 import { boardMembers } from "@/app/data/board";
+import { createPageMetadata } from "@/app/lib/seo";
 
 const infoItems = [
   "Studentdriven juristbyrå från Handelshögskolan i Göteborg",
@@ -9,11 +10,13 @@ const infoItems = [
   "Tydliga svar, nära dialog och praktiskt användbara leveranser",
 ];
 
-export const metadata: Metadata = {
-  title: "Om oss",
+export const metadata: Metadata = createPageMetadata({
+  title: "Om vår juristbyrå",
   description:
-    "Läs mer om HandelsJuristerna, Sveriges största studentdrivna juristbyrå från Handelshögskolan i Göteborg.",
-};
+    "Läs om HandelsJuristerna, Sveriges största studentdrivna juristbyrå med juridisk rådgivning från Handelshögskolan i Göteborg.",
+  path: "/om-oss",
+  keywords: ["om HandelsJuristerna", "juriststudenter Göteborg"],
+});
 
 export default function AboutPage() {
   return (

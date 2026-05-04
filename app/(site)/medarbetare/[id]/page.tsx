@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { firm } from "@/app/data/site";
 import { employees, findEmployeeById, getEmployeeId } from "@/app/data/people";
+import { createPageMetadata } from "@/app/lib/seo";
 import styles from "./page.module.css";
 
 type EmployeePageProps = {
@@ -72,15 +73,22 @@ export async function generateMetadata({ params }: EmployeePageProps): Promise<M
   const person = findEmployeeById(id);
 
   if (!person) {
-    return {
+    return createPageMetadata({
       title: "Medarbetare",
-    };
+      description:
+        "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan i Göteborg.",
+      path: "/medarbetare",
+    });
   }
 
-  return {
-    title: `${person.name} | Medarbetare`,
-    description: `Kontaktuppgifter till ${person.name}, ${person.title} på ${firm.displayName}.`,
-  };
+  const path = `/medarbetare/${getEmployeeId(person)}`;
+
+  return createPageMetadata({
+    title: `${person.name}, ${person.title}`,
+    description: `Kontaktuppgifter till ${person.name}, ${person.title} på ${firm.displayName}, en juristbyrå i Göteborg.`,
+    path,
+    keywords: [person.name, person.title, "medarbetare juristbyrå"],
+  });
 }
 
 export default async function EmployeePage({ params }: EmployeePageProps) {

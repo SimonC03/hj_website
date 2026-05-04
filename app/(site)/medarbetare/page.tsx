@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { employeeSections, getEmployeeId, type EmployeeProfile } from "@/app/data/people";
+import { createPageMetadata } from "@/app/lib/seo";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Medarbetare",
-  description: "Möt juristerna på HJ Advokatbyrå.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Jurister och juridiska konsulter",
+  description:
+    "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan i Göteborg och hitta rätt kontaktperson.",
+  path: "/medarbetare",
+  keywords: ["jurister Göteborg", "juridiska konsulter", "juriststudenter"],
+});
 
 function splitName(name: string) {
   return name.split(" ").map((part) => <span key={`${name}-${part}`}>{part}</span>);

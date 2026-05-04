@@ -28,7 +28,7 @@ export default function HomePage() {
             studentdrivna byrå
           </h1>
           <p className="preamble">
-            Handelsjuristerna är en juristbyrå driven av juriststudenter från
+            HandelsJuristerna är en juristbyrå driven av juriststudenter från
             Handelshögskolan i Göteborg <br className="desktop-break" />
             Vi gör juridiken lättillgänglig för företag och privatpersoner.
           </p>

@@ -1,8 +1,8 @@
 export const firm = {
-  name: "HJ Advokatbyra",
-  displayName: "HJ Advokatbyrå",
+  name: "HandelsJuristerna",
+  displayName: "HandelsJuristerna",
   tagline: "Affärsjuridisk rådgivning med kommersiell skärpa.",
-  email: "vd.holding@hhgs.se",
+  email: "info@handelsjuristerna.se",
   phone: "031-20 27 20",
   address: "Viktoriagatan 9, 411 25 Göteborg",
 };

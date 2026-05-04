@@ -34,9 +34,9 @@ export const employeeSections: EmployeeSection[] = [
         languages: ["Svenska", "Engelska"],
         education: ["Juristexamen, Stockholms universitet"],
         experience: [
-          "VD, Handelsjuristerna (2020–nuvarande)",
-          "Affärsområdesansvarig, Handelsjuristerna (2018–2020)",
-          "Juridisk konsult, Handelsjuristerna (2015–2018)",
+          "VD, HandelsJuristerna (2020–nuvarande)",
+          "Affärsområdesansvarig, HandelsJuristerna (2018–2020)",
+          "Juridisk konsult, HandelsJuristerna (2015–2018)",
         ],
         specialAreas: ["Kommersiell avtalsrätt", "Bolagsrätt", "Tvistelösning"],
       },

@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { createPageMetadata, siteUrl } from "@/app/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,22 +16,63 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+const homeTitle = "HandelsJuristerna | Juristbyrå i Göteborg";
+const homeDescription =
+  "Sveriges största studentdrivna juristbyrå. HandelsJuristerna erbjuder juridisk rådgivning för företag, organisationer och privatpersoner i Göteborg.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hj-advokatbyra.se"),
+  ...createPageMetadata({
+    title: homeTitle,
+    description: homeDescription,
+    path: "/",
+    keywords: [
+      "jurist Göteborg",
+      "juridisk hjälp Göteborg",
+      "juridiska tjänster",
+    ],
+  }),
+  metadataBase: new URL(siteUrl),
+  applicationName: "HandelsJuristerna",
+  manifest: "/site.webmanifest",
   title: {
-    default: "HJ Advokatbyrå | Affärsjuridisk rådgivning",
-    template: "%s | HJ Advokatbyrå",
+    default: homeTitle,
+    template: "%s | HandelsJuristerna",
   },
-  description:
-    "HJ Advokatbyrå erbjuder affärsjuridisk rådgivning inom bolagsrätt, transaktioner, tvistlösning och kommersiella avtal.",
-  openGraph: {
-    title: "HJ Advokatbyrå",
-    description:
-      "Affärsjuridisk rådgivning för bolag, ägare och ledningar.",
-    locale: "sv_SE",
-    siteName: "HJ Advokatbyrå",
-    type: "website",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+  appleWebApp: {
+    capable: true,
+    title: "HandelsJuristerna",
+    statusBarStyle: "default",
+  },
+  authors: [{ name: "HandelsJuristerna", url: siteUrl }],
+  creator: "HandelsJuristerna",
+  publisher: "HandelsJuristerna",
+  category: "Juridiska tjänster",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
