@@ -7,7 +7,6 @@
   place-items: center;
   padding: clamp(168px, 13vw, 220px) 40px clamp(92px, 8vw, 136px);
   text-align: center;
-  border-bottom: 1px solid rgb(var(--brand-white-rgb) / 0.18);
 }
 
 .heroTitle {
@@ -24,7 +23,7 @@
 .groupSection {
   width: min(1700px, calc(100% - 28px));
   margin: 0 auto;
-  padding: 0 0 36px;
+  padding: clamp(22px, 3vw, 44px) 0 36px;
 }
 
 .groupSectionMuted {
