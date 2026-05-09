@@ -129,7 +129,7 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`site-header setterwalls-header${isScrolled ? " sticky" : ""}${
+        className={`site-header handelsjuristerna-header${isScrolled ? " sticky" : ""}${
           isHidden && !isMenuOpen ? " hidden" : ""
         }${
           isMenuOpen ? " active" : ""
@@ -141,7 +141,7 @@ export function SiteHeader() {
           </Link>
 
           <div className="menu-right">
-            <nav className="setterwalls-navbar" aria-label="Snabbnavigation">
+            <nav className="handelsjuristerna-navbar" aria-label="Snabbnavigation">
               <ul className="navbar-nav">
                 {quickNav.map((item) => (
                   <li className="menu-item" key={item.href}>

@@ -7,7 +7,7 @@
   --header-text: var(--white);
 }
 
-:global(body:has(.career-page) .setterwalls-header.active) {
+:global(body:has(.career-page) .handelsjuristerna-header.active) {
   --header-text: var(--white);
 }
 
