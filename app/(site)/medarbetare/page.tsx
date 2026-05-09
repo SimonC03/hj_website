@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = createPageMetadata({
   title: "Jurister och juridiska konsulter",
   description:
-    "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan i Göteborg och hitta rätt kontaktperson.",
+    "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan vid Göteborgs universitet och hitta rätt kontaktperson.",
   path: "/medarbetare",
   keywords: ["jurister Göteborg", "juridiska konsulter", "juriststudenter"],
 });
@@ -65,12 +65,6 @@ export default function PeoplePage() {
     <div className={styles.page}>
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>Medarbetare</h1>
-        <p className={styles.heroIntro}>
-          Vi på HandelsJuristerna är stolta över att ha en personalstyrka som
-          består av några av de mest framstående juriststudenterna på
-          Handelshögskolan vid Göteborgs universitet. Nedan finns
-          kontaktuppgifter till alla våra medarbetare.
-        </p>
       </section>
 
       {employeeSections.map((section, index) => (

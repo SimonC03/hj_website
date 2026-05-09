@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: EmployeePageProps): Promise<M
     return createPageMetadata({
       title: "Medarbetare",
       description:
-        "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan i Göteborg.",
+        "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan vid Göteborgs universitet.",
       path: "/medarbetare",
     });
   }

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { MainPartnersSection } from "@/app/components/main-partners-section";
 import { boardMembers } from "@/app/data/board";
+import { values } from "@/app/data/site";
 import { createPageMetadata } from "@/app/lib/seo";
 
 const infoItems = [
-  "Studentdriven juristbyrå från Handelshögskolan i Göteborg",
+  "Studentdriven juristbyrå från Handelshögskolan vid Göteborgs universitet",
   "Rådgivning för företag, organisationer och privatpersoner",
   "Tydliga svar, nära dialog och praktiskt användbara leveranser",
 ];
@@ -13,7 +14,7 @@ const infoItems = [
 export const metadata: Metadata = createPageMetadata({
   title: "Om vår juristbyrå",
   description:
-    "Läs om HandelsJuristerna, Sveriges största studentdrivna juristbyrå med juridisk rådgivning från Handelshögskolan i Göteborg.",
+    "Läs om HandelsJuristerna, Sveriges största studentdrivna juristbyrå med juridisk rådgivning från Handelshögskolan vid Göteborgs universitet.",
   path: "/om-oss",
   keywords: ["om HandelsJuristerna", "juriststudenter Göteborg"],
 });
@@ -27,7 +28,7 @@ export default function AboutPage() {
           <div className="about-page-lead">
             <p>
               HandelsJuristerna är en juristbyrå driven av juriststudenter från
-              Handelshögskolan i Göteborg. Vi gör juridiken mer lättillgänglig
+              Handelshögskolan vid Göteborgs universitet. Vi gör juridiken mer lättillgänglig
               för företag, organisationer och privatpersoner som vill ha tydliga
               råd utan onödig omväg.
             </p>
@@ -36,6 +37,25 @@ export default function AboutPage() {
               juridik som går att använda i praktiken. Målet är att varje klient
               ska förstå både frågan, alternativen och nästa steg.
             </p>
+          </div>
+        </div>
+      </section>
+      <section className="section work-method-section">
+        <div className="section-inner split section-navy work-method-layout">
+          <div className="work-method-copy">
+            <h2>Senior, rak och kommersiellt förankrad rådgivning.</h2>
+            <p>
+              Vi kombinerar akademisk skärpa med ett praktiskt arbetssätt där
+              varje råd ska vara begripligt, användbart och möjligt att agera
+              på direkt.
+            </p>
+          </div>
+          <div className="values-list">
+            {values.map((value) => (
+              <p key={value}>
+                {value}
+              </p>
+            ))}
           </div>
         </div>
       </section>

@@ -93,49 +93,6 @@
   text-decoration-color: currentColor;
 }
 
-.factsSection {
-  padding: 0 40px clamp(112px, 8.2vw, 150px);
-  background: var(--white);
-  color: var(--navy-950);
-  border: 0;
-}
-
-.factGrid {
-  width: min(1320px, 100%);
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0 auto;
-  gap: clamp(30px, 4.6vw, 74px);
-  background: transparent;
-}
-
-.factItem {
-  min-height: 104px;
-  display: grid;
-  align-content: center;
-  gap: 10px;
-  padding: 0;
-  background: var(--white);
-  border-right: 0;
-}
-
-.factItem span {
-  color: rgb(var(--brand-blue-rgb) / 0.62);
-  font-size: 0.74rem;
-  font-weight: 850;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.factItem strong {
-  max-width: 20ch;
-  color: var(--navy-950);
-  font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: clamp(1.32rem, 1.75vw, 1.72rem);
-  font-weight: 600;
-  line-height: 1.12;
-}
-
 .section {
   width: 100%;
   padding: 0 40px clamp(132px, 9.2vw, 178px);
@@ -278,10 +235,6 @@
     max-width: 760px;
   }
 
-  .factGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .applyInner,
   .detailList,
   .listColumns {
@@ -321,21 +274,6 @@
   .heroActions :global(.button),
   .applyContent :global(.button) {
     width: 100%;
-  }
-
-  .factGrid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .factItem {
-    min-height: 0;
-    padding: 0;
-    border-right: 0;
-  }
-
-  .factItem:first-child {
-    border-top: 0;
   }
 
   .section {

@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/app/components/contact-form";
+import { HeroStats } from "@/app/components/hero-stats";
 import { MainPartnersSection } from "@/app/components/main-partners-section";
-import { clientLogos, firm, practiceAreas, values } from "@/app/data/site";
+import { clientLogos, firm, practiceAreas } from "@/app/data/site";
 
 export default function HomePage() {
   return (
@@ -20,14 +21,15 @@ export default function HomePage() {
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
           <h1>
-            Sveriges största <br />
-            studentdrivna byrå
+            <span className="hero-title-line">Sveriges största</span>
+            <span className="hero-title-line">studentdrivna juristbyrå</span>
           </h1>
           <p className="preamble">
             HandelsJuristerna är en juristbyrå driven av juriststudenter från
-            Handelshögskolan i Göteborg <br className="desktop-break" />
+            Handelshögskolan vid Göteborgs universitet <br className="desktop-break" />
             Vi gör juridiken lättillgänglig för företag och privatpersoner.
           </p>
+          <HeroStats />
         </div>
       </section>
 
@@ -63,26 +65,6 @@ export default function HomePage() {
       </section>
 
       <MainPartnersSection />
-
-      <section className="section work-method-section">
-        <div className="section-inner split section-navy work-method-layout">
-          <div className="work-method-copy">
-            <h2>Senior, rak och kommersiellt förankrad rådgivning.</h2>
-            <p>
-              Vi kombinerar akademisk skärpa med ett praktiskt arbetssätt där
-              varje råd ska vara begripligt, användbart och möjligt att agera
-              på direkt.
-            </p>
-          </div>
-          <div className="values-list">
-            {values.map((value) => (
-              <p key={value}>
-                {value}
-              </p>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section
         className="module-component module-component_content expertise-section"
@@ -149,8 +131,8 @@ export default function HomePage() {
       <section className="section contact-band">
         <div className="section-inner contact-grid">
           <div>
-            <h2>Kontakta oss gärna</h2>
-            <p>Ring, maila eller fyll i formuläret så hör vi av oss så fort vi kan.</p>
+            <h2>Kontakta oss</h2>
+            <p>Ring, maila eller fyll i formuläret.</p>
             <dl className="contact-details">
               <div>
                 <dt>Adress</dt>

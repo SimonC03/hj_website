@@ -22,16 +22,6 @@
   text-align: center;
 }
 
-.heroIntro {
-  width: min(760px, 100%);
-  margin: 20px 0 0;
-  color: var(--white-78);
-  font-family: var(--font-hj-sans), Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.8;
-}
-
 .groupSection {
   width: min(1700px, calc(100% - 28px));
   margin: 0 auto;

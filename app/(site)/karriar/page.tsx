@@ -6,13 +6,6 @@ import styles from "./page.module.css";
 const applicationEmail = "rekrytering@handelsjuristerna.se";
 const questionEmail = "rima.eldawi@handelsjuristerna.se";
 
-const roleFacts = [
-  { label: "Roll", value: "Juridisk konsult" },
-  { label: "Omfattning", value: "8 timmar per vecka" },
-  { label: "Schema", value: "Flexibelt vid sidan av studierna" },
-  { label: "Ersättning", value: "Provision baserad på avslutade projekt" },
-];
-
 const roleContent = [
   {
     title: "Vad du gör",
@@ -81,17 +74,6 @@ export default function CareerPage() {
               Frågor om tjänsten
             </a>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.factsSection} aria-label="Kort om rollen">
-        <div className={styles.factGrid}>
-          {roleFacts.map((fact) => (
-            <div className={styles.factItem} key={fact.label}>
-              <span>{fact.label}</span>
-              <strong>{fact.value}</strong>
-            </div>
-          ))}
         </div>
       </section>
 
