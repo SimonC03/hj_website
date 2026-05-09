@@ -94,6 +94,9 @@
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 .title {
@@ -290,6 +293,8 @@
   line-height: 0.94;
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 .bodySecond {
@@ -504,7 +509,7 @@
   }
 
   .name {
-    font-size: clamp(2.7rem, 14vw, 4.8rem);
+    font-size: clamp(2.55rem, 13vw, 4.4rem);
   }
 
   .contactList {
@@ -529,6 +534,32 @@
 }
 
 @media (max-width: 560px) {
+  .page {
+    padding-top: 86px;
+    padding-bottom: 112px;
+  }
+
+  .headerContent {
+    padding: 30px 18px 38px;
+  }
+
+  .name {
+    font-size: clamp(2.25rem, 13vw, 3.35rem);
+  }
+
+  .title {
+    font-size: 1.08rem;
+  }
+
+  .bodyTitle {
+    font-size: clamp(2rem, 12vw, 3rem);
+    letter-spacing: 0;
+  }
+
+  .bodySecond {
+    font-size: 1.05rem;
+  }
+
   .related {
     padding-inline: 16px;
   }
@@ -540,5 +571,60 @@
   .relatedCard {
     min-height: 150px;
     padding: 18px;
+  }
+}
+
+@media (max-width: 390px) {
+  .page {
+    padding-top: 78px;
+    padding-bottom: 92px;
+  }
+
+  .headerImage {
+    aspect-ratio: 1 / 1.12;
+  }
+
+  .headerContent {
+    padding: 26px 16px 34px;
+  }
+
+  .name {
+    font-size: clamp(2rem, 12vw, 2.8rem);
+    line-height: 1.02;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .rule {
+    margin: 24px 0;
+  }
+
+  .contactGrid {
+    gap: 18px;
+  }
+
+  .bodySection {
+    padding: 34px 16px 42px;
+  }
+
+  .bodyTitle,
+  .relatedHeader h2 {
+    font-size: clamp(1.84rem, 10.5vw, 2.35rem);
+    line-height: 1.02;
+  }
+
+  .bodySecond {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .related {
+    padding: 42px 14px;
+  }
+
+  .relatedCard span {
+    font-size: 1.45rem;
   }
 }

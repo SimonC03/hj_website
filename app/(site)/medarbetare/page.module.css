@@ -18,6 +18,7 @@
   line-height: 0.96;
   letter-spacing: 0;
   text-align: center;
+  text-wrap: balance;
 }
 
 .groupSection {
@@ -270,7 +271,7 @@
   }
 
   .heroTitle {
-    font-size: 2.75rem;
+    font-size: clamp(2.35rem, 10vw, 2.85rem);
     line-height: 0.96;
   }
 
@@ -283,7 +284,40 @@
   }
 }
 
+@media (max-width: 680px) {
+  .groupSection {
+    width: min(1700px, calc(100% - 18px));
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .previewName {
+    font-size: clamp(1.8rem, 9vw, 2.35rem);
+    letter-spacing: 0;
+  }
+
+  .hoverName {
+    letter-spacing: 0;
+  }
+}
+
 @media (max-width: 560px) {
+  .hero {
+    padding: 118px 18px 66px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.08rem, 11vw, 2.35rem);
+    line-height: 1.02;
+  }
+
   .groupSection {
     width: min(1700px, calc(100% - 16px));
     padding-bottom: 22px;
@@ -304,5 +338,37 @@
 
   .hoverName {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    padding: 102px 18px 58px;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.94rem, 10.5vw, 2.18rem);
+  }
+
+  .groupSection {
+    width: min(1700px, calc(100% - 12px));
+  }
+
+  .previewLink,
+  .hoverPanel {
+    padding: 16px;
+  }
+
+  .previewName,
+  .hoverName {
+    font-size: 1.72rem;
+    line-height: 0.98;
+  }
+
+  .previewRole,
+  .hoverRole,
+  .contactLink,
+  .phoneLink {
+    font-size: 0.9rem;
   }
 }
