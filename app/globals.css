@@ -321,37 +321,47 @@ select {
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1px;
-  max-width: 980px;
-  margin: 36px 0 0;
+  gap: 0;
+  max-width: 920px;
+  margin: 38px 0 0;
   padding: 0;
   color: var(--white);
+  border-top: 1px solid rgb(var(--brand-white-rgb) / 0.22);
+  border-bottom: 1px solid rgb(var(--brand-white-rgb) / 0.18);
 }
 
 .hero-stat {
   min-width: 0;
-  padding: 18px 20px 17px;
-  background: rgb(var(--brand-blue-rgb) / 0.54);
-  border: 1px solid rgb(255 255 255 / 0.16);
-  backdrop-filter: blur(12px);
+  padding: 18px 22px 16px 0;
+  background: transparent;
+  border-right: 1px solid rgb(var(--brand-white-rgb) / 0.16);
+}
+
+.hero-stat + .hero-stat {
+  padding-left: 22px;
+}
+
+.hero-stat:last-child {
+  border-right: 0;
 }
 
 .hero-stat dt {
   margin: 0;
-  color: var(--white-72);
-  font-size: 0.73rem;
-  font-weight: 800;
-  line-height: 1.25;
+  color: var(--white-68);
+  font-size: 0.68rem;
+  font-weight: 760;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .hero-stat dd {
-  margin: 8px 0 0;
-  font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: clamp(2rem, 2.7vw, 3.1rem);
-  font-weight: 600;
-  line-height: 0.92;
+  margin: 9px 0 0;
+  font-family: var(--font-hj-sans), Inter, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1.95rem, 2.55vw, 2.85rem);
+  font-weight: 520;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
 .hero-actions {
@@ -1669,7 +1679,20 @@ body:has(.about-page) .setterwalls-header.active {
   }
 
   .hero-stat {
-    padding: 14px 16px 13px;
+    padding: 14px 14px 13px 0;
+    border-bottom: 1px solid rgb(var(--brand-white-rgb) / 0.14);
+  }
+
+  .hero-stat + .hero-stat {
+    padding-left: 14px;
+  }
+
+  .hero-stat:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .hero-stat:nth-last-child(-n + 2) {
+    border-bottom: 0;
   }
 
   .hero-stat dt {
@@ -1864,7 +1887,11 @@ body:has(.about-page) .setterwalls-header.active {
   }
 
   .hero-stat {
-    padding: 12px 12px 11px;
+    padding: 12px 12px 11px 0;
+  }
+
+  .hero-stat + .hero-stat {
+    padding-left: 12px;
   }
 
   .hero-stat dt {
