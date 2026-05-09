@@ -26,6 +26,10 @@
   padding: clamp(22px, 3vw, 44px) 0 36px;
 }
 
+.groupSection:last-child {
+  padding-bottom: clamp(150px, 12vw, 230px);
+}
+
 .groupSectionMuted {
   padding-top: 26px;
 }
@@ -283,6 +287,10 @@
   .groupSection {
     width: min(1700px, calc(100% - 16px));
     padding-bottom: 22px;
+  }
+
+  .groupSection:last-child {
+    padding-bottom: 140px;
   }
 
   .grid {
