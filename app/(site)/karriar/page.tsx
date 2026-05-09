@@ -4,7 +4,6 @@ import { createPageMetadata } from "@/app/lib/seo";
 import styles from "./page.module.css";
 
 const applicationEmail = "rekrytering@handelsjuristerna.se";
-const questionEmail = "rima.eldawi@handelsjuristerna.se";
 
 const roleContent = [
   {
@@ -61,19 +60,11 @@ export default function CareerPage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className="eyebrow">Karriär</p>
-          <h1>Bli juridisk konsult vid sidan av studierna</h1>
-          <p className={styles.lead}>
-            Få praktisk juridisk erfarenhet tidigt, arbeta nära klienter och
-            utvecklas i en studentdriven juristbyrå med höga ambitioner.
-          </p>
-          <div className={styles.heroActions}>
-            <Link className="button button-primary" href={applicationHref}>
-              Skicka ansökan
-            </Link>
-            <a className={styles.textLink} href={`mailto:${questionEmail}`}>
-              Frågor om tjänsten
-            </a>
-          </div>
+          <h1>
+            Bli juridisk{" "}
+            <span className={styles.heroAccent}>konsult</span> vid sidan av
+            studierna
+          </h1>
         </div>
       </section>
 
@@ -105,6 +96,18 @@ export default function CareerPage() {
         </div>
       </section>
 
+      <section className={styles.calloutSection}>
+        <div className={styles.callout}>
+          <p className="eyebrow">HandelsJuristerna</p>
+          <h2>Praktisk affärsjuridik i ett sammanhang byggt för studenter.</h2>
+          <p>
+            Du får ta ansvar tidigt, arbeta nära klienter och utvecklas
+            tillsammans med andra juriststudenter som vill omsätta juridiken i
+            konkreta leveranser.
+          </p>
+        </div>
+      </section>
+
       <section className={styles.section}>
         <div className={styles.contentBlock}>
           <div className={styles.listColumns}>
@@ -132,19 +135,15 @@ export default function CareerPage() {
         <div className={styles.applyInner}>
           <div className={styles.applyContent}>
             <p>
-              När du vill söka skickar du din spontanansökan till{" "}
+              Skicka din spontanansökan till{" "}
               <a href={`mailto:${applicationEmail}`}>{applicationEmail}</a> och
-              bifogar handlingarna nedan.
+              bifoga följande handlingar.
             </p>
             <ul className={styles.applicationList}>
               {applicationChecklist.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <p className={styles.smallText}>
-              Vid frågor om tjänsten: Rima El-Dawi, personalansvarig,{" "}
-              <a href={`mailto:${questionEmail}`}>{questionEmail}</a>.
-            </p>
             <Link className="button button-primary" href={applicationHref}>
               Öppna e-post
             </Link>
