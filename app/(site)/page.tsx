@@ -9,15 +9,18 @@ export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <Image
-          alt=""
+        <video
           aria-hidden="true"
+          autoPlay
           className="hero-media"
-          fill
-          priority
-          sizes="100vw"
-          src="/images/hero.jpg"
-        />
+          loop
+          muted
+          playsInline
+          poster="/images/hero.jpg"
+          preload="metadata"
+        >
+          <source src="/images/AdobeStock_177928586.mov" />
+        </video>
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
           <h1>

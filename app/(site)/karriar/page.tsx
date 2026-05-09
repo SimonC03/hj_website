@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { createPageMetadata } from "@/app/lib/seo";
 import styles from "./page.module.css";
@@ -103,6 +104,16 @@ export default function CareerPage() {
             tillsammans med andra juriststudenter som vill omsätta juridiken i
             konkreta leveranser.
           </p>
+          <figure className={styles.calloutMedia}>
+            <Image
+              alt="Juriststudenter som arbetar tillsammans med juridiska dokument."
+              className={styles.calloutImage}
+              height={2651}
+              sizes="(max-width: 720px) calc(100vw - 100px), 1210px"
+              src="/images/AdobeStock_310976337.jpeg"
+              width={7952}
+            />
+          </figure>
         </div>
       </section>
 
