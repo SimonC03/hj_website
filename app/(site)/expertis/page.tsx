@@ -32,7 +32,6 @@ export default function ExpertisePage() {
           </p>
         </div>
       </section>
-
       <PriceList />
     </div>
   );
