@@ -53,6 +53,7 @@ export const practiceAreas = [
 
 export const values = [
   "Senior närvaro i varje uppdrag",
+  "Tydliga råd",
   "Juridik för beslut som ska hålla över tid",
 ];
 

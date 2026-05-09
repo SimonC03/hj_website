@@ -46,7 +46,7 @@ export default function AboutPage() {
             <h2>Senior, rak och kommersiellt förankrad rådgivning.</h2>
             <p>
               Vi kombinerar akademisk skärpa med ett praktiskt arbetssätt där
-              varje råd ska vara begripligt, användbart och möjligt att agera
+              varje råd är begripligt, användbart och möjligt att agera
               på direkt.
             </p>
           </div>
