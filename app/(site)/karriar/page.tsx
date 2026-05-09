@@ -59,7 +59,6 @@ export default function CareerPage() {
     <div className={`${styles.page} career-page`}>
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className="eyebrow">Karriär</p>
           <h1>
             Bli juridisk{" "}
             <span className={styles.heroAccent}>konsult</span> vid sidan av

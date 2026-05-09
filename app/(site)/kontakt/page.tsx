@@ -15,7 +15,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <PageIntro eyebrow="Kontakt" title="Kontakta oss">
+      <PageIntro title="Kontakta oss">
         <p>Maila eller fyll i formuläret så återkommer vi.</p>
       </PageIntro>
 

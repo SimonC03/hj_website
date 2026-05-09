@@ -14,29 +14,12 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(178px, 13vw, 230px) 40px clamp(130px, 11vw, 190px);
+  padding: clamp(168px, 13vw, 220px) 40px clamp(92px, 8vw, 136px);
   background:
     linear-gradient(135deg, rgb(var(--brand-orange-rgb) / 0.15) 0%, transparent 34%),
     var(--navy-950);
   color: var(--white);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 92px;
-  background: var(--white);
-  clip-path: polygon(0 58%, 12% 46%, 25% 54%, 39% 35%, 55% 50%, 70% 32%, 84% 45%, 100% 28%, 100% 100%, 0 100%);
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 18px;
-  height: 74px;
-  background: rgb(var(--brand-white-rgb) / 0.24);
-  clip-path: polygon(0 66%, 13% 52%, 27% 62%, 42% 42%, 58% 57%, 73% 39%, 87% 51%, 100% 35%, 100% 48%, 86% 64%, 72% 53%, 57% 70%, 42% 56%, 28% 75%, 13% 66%, 0 80%);
+  border-bottom: 1px solid rgb(var(--brand-white-rgb) / 0.18);
 }
 
 .heroInner,
@@ -70,10 +53,10 @@
 
 .hero h1 {
   grid-column: 1;
-  max-width: 980px;
+  max-width: 850px;
   color: var(--white);
-  font-size: clamp(3.9rem, 6.2vw, 7.2rem);
-  line-height: 0.94;
+  font-size: clamp(3rem, 5.1vw, 5.2rem);
+  line-height: 0.96;
 }
 
 .heroAccent {
@@ -290,22 +273,13 @@
   }
 
   .hero {
-    padding-top: 142px;
-    padding-bottom: 118px;
+    padding: 132px 22px 82px;
   }
 
   .hero h1 {
-    max-width: 11ch;
-    font-size: 2.5rem;
-  }
-
-  .hero::before {
-    height: 66px;
-  }
-
-  .hero::after {
-    bottom: 12px;
-    height: 50px;
+    max-width: 12ch;
+    font-size: 2.75rem;
+    line-height: 0.96;
   }
 
   .applyContent :global(.button) {
@@ -341,8 +315,3 @@
   }
 }
 
-@media (max-width: 430px) {
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-}

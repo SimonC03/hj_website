@@ -33,6 +33,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="client-marquee-section" aria-label="Tidigare kunder">
+        <div className="client-marquee" aria-label="Tidigare kunder">
+          {[0, 1].map((loop) => (
+            <div
+              className="client-marquee-track"
+              aria-hidden={loop === 1}
+              key={loop}
+            >
+              {clientLogos.map((logo) => (
+                <Image
+                  alt={loop === 0 ? logo.alt : ""}
+                  className="client-logo"
+                  height={80}
+                  key={`${loop}-${logo.name}`}
+                  src={logo.src}
+                  width={logo.width}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="module-component module-component_content about-firm-section">
         <div className="wrapper content-module_width-medium">
           <figure className="content-module_thumbnail">
@@ -101,29 +124,6 @@ export default function HomePage() {
                 Läs mer
               </span>
             </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="client-marquee-section" aria-label="Tidigare kunder">
-        <div className="client-marquee" aria-label="Tidigare kunder">
-          {[0, 1].map((loop) => (
-            <div
-              className="client-marquee-track"
-              aria-hidden={loop === 1}
-              key={loop}
-            >
-              {clientLogos.map((logo) => (
-                <Image
-                  alt={loop === 0 ? logo.alt : ""}
-                  className="client-logo"
-                  height={80}
-                  key={`${loop}-${logo.name}`}
-                  src={logo.src}
-                  width={logo.width}
-                />
-              ))}
-            </div>
           ))}
         </div>
       </section>

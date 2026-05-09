@@ -504,8 +504,8 @@ select {
 }
 
 .about-firm-section .responsive-img {
-  height: clamp(520px, 44vw, 680px);
-  aspect-ratio: 5 / 4;
+  height: clamp(360px, 34vw, 500px);
+  aspect-ratio: 4 / 3;
 }
 
 .about-firm-section .content-module_wrapper {
@@ -526,13 +526,14 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .about-page-text {
-  padding: clamp(158px, 13vw, 210px) 40px clamp(82px, 8vw, 124px);
+  padding: clamp(168px, 13vw, 220px) 40px clamp(92px, 8vw, 136px);
   background: var(--surface);
 }
 
 .about-page-text .section-title {
-  max-width: 860px;
-  font-size: clamp(3.2rem, 5.1vw, 5.7rem);
+  max-width: 850px;
+  font-size: clamp(3rem, 5.1vw, 5.2rem);
+  line-height: 0.96;
 }
 
 .about-page-lead {
@@ -1230,15 +1231,15 @@ body:has(.about-page) .setterwalls-header.active {
 }
 
 .page-intro {
-  padding-top: 112px;
-  padding-bottom: 70px;
+  padding: clamp(168px, 13vw, 220px) 40px clamp(92px, 8vw, 136px);
   background: var(--navy-950);
   color: var(--white);
 }
 
 .page-intro h1 {
   color: var(--white);
-  font-size: 4.1rem;
+  font-size: clamp(3rem, 5.1vw, 5.2rem);
+  line-height: 0.96;
 }
 
 .page-intro .lead-copy {
@@ -1723,7 +1724,8 @@ body:has(.about-page) .setterwalls-header.active {
   }
 
   .about-page-text {
-    padding-top: 126px;
+    padding-top: 132px;
+    padding-bottom: 82px;
   }
 
   .about-page-text,
@@ -1764,14 +1766,18 @@ body:has(.about-page) .setterwalls-header.active {
   }
 
   .page-intro {
-    padding-top: 82px;
-    padding-bottom: 56px;
+    padding: 132px 22px 82px;
   }
 
   .page-intro h1,
-  .section-title,
+  .about-page-text .section-title {
+    font-size: 2.75rem;
+    line-height: 0.96;
+  }
+
   .section h2,
-  .contact-band h2 {
+  .contact-band h2,
+  .section-title {
     font-size: 2.45rem;
   }
 
@@ -1875,6 +1881,12 @@ body:has(.about-page) .setterwalls-header.active {
   .contact-band h2 {
     font-size: 2.1rem;
   }
+
+  .page-intro h1,
+  .about-page-text .section-title {
+    font-size: 2.75rem;
+    line-height: 0.96;
+  }
 }
 
 /* Setterwalls-style header */
@@ -1896,6 +1908,7 @@ body:has(.about-page) .setterwalls-header.active {
   font-family: var(--font-hj-sans), "Noto Sans", Arial, sans-serif;
   transition:
     background-color 200ms ease,
+    box-shadow 200ms ease,
     transform 300ms ease-in-out;
 }
 
@@ -1906,10 +1919,12 @@ body:has(.about-page) .setterwalls-header.active {
 
 .site-header.setterwalls-header.sticky,
 .site-header.setterwalls-header.active {
-  background: transparent !important;
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  background: var(--navy-950) !important;
+  background-color: var(--navy-950) !important;
+  color: var(--white);
+  box-shadow: 0 14px 38px rgb(var(--brand-blue-rgb) / 0.18);
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
 }
 
 .site-header.setterwalls-header::before,

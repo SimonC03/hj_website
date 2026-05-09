@@ -83,10 +83,11 @@ export function SiteHeader() {
   const lastScrollY = useRef(0);
 
   const usesLightHeader =
-    pathname === "/om-oss" ||
-    pathname === "/expertis" ||
-    pathname === "/karriar";
-  const headerLogoSrc = usesLightHeader ? "/logos/full-black.png" : "/logos/full-white.png";
+    pathname === "/om-oss";
+  const headerLogoSrc =
+    usesLightHeader && !isScrolled && !isMenuOpen
+      ? "/logos/full-black.png"
+      : "/logos/full-white.png";
 
   const closeAll = () => {
     setIsMenuOpen(false);
@@ -130,7 +131,9 @@ export function SiteHeader() {
       <header
         className={`site-header setterwalls-header${isScrolled ? " sticky" : ""}${
           isHidden && !isMenuOpen ? " hidden" : ""
-        }${isMenuOpen ? " active" : ""}`}
+        }${
+          isMenuOpen ? " active" : ""
+        }`}
       >
         <div className="header-container">
           <Link className="logotype" href="/" onClick={closeAll}>
