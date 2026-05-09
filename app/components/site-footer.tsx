@@ -15,9 +15,9 @@ export const footerData = {
     "HandelsJuristerna är en juristbyrå driven av juriststudenter från Handelshögskolan vid Göteborgs universitet. Vår vision är att vara den flexibla och okomplicerade byrån som gör juridiken lättillgänglig för såväl företag som privatpersoner.",
   copyrightYear: new Date().getFullYear(),
   socials: {
-    linkedin: "https://www.linkedin.com/company/ditt-foretag/",
-    instagram: "https://www.instagram.com/dittforetag/",
-    facebook: "https://www.facebook.com/dittforetag/",
+    linkedin: "https://www.linkedin.com/company/handelsjuristerna/",
+    instagram: "https://www.instagram.com/handelsjuristerna/",
+    facebook: "https://www.facebook.com/handelsjuristerna/",
   },
   navItems: [
     { label: "Expertisområden", href: "/expertis" },
