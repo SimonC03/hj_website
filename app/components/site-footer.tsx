@@ -173,7 +173,7 @@ export function SiteFooter() {
             <h2>Samarbetspartners</h2>
             <div className="site-footer-block">
               {footerData.partners.length > 0 ? (
-                <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+                <div className="site-footer-partners">
                   {footerData.partners.map((partner) => {
                     const logo = (
                       <Image
@@ -197,7 +197,7 @@ export function SiteFooter() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Besök ${partner.name}`}
-                        style={{ display: "inline-block" }}
+                        className="site-footer-partner-link"
                       >
                         {logo}
                       </a>

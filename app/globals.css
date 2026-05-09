@@ -1448,34 +1448,38 @@ body:has(.about-page) .setterwalls-header.active {
 .site-footer-inner {
   width: min(1180px, 100%);
   margin: 0 auto;
-  padding: 68px 40px 92px;
+  padding: clamp(54px, 6vw, 72px) clamp(24px, 4vw, 40px) clamp(68px, 7vw, 92px);
   min-width: 0;
 }
 
 .site-footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr;
-  gap: 42px;
+  grid-template-columns: minmax(260px, 1.35fr) minmax(150px, 0.75fr) minmax(170px, 0.85fr) minmax(210px, 1fr);
+  gap: clamp(30px, 4vw, 48px);
+  align-items: start;
 }
 
 .site-footer-logo {
   display: block;
+  width: clamp(82px, 8vw, 120px);
+  height: auto;
   color: var(--footer-text);
   fill: currentColor;
 }
 
 .site-footer-about {
-  max-width: 330px;
-  margin: 22px 0 0;
+  max-width: 36ch;
+  margin: clamp(18px, 2.4vw, 24px) 0 0;
   color: var(--footer-muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: clamp(0.88rem, 0.95vw, 0.95rem);
+  line-height: 1.72;
+  text-wrap: pretty;
 }
 
 .site-footer h2 {
-  margin: 0 0 18px;
+  margin: 0 0 clamp(14px, 2vw, 18px);
   color: var(--footer-heading);
-  font-size: 1.15rem;
+  font-size: clamp(1.02rem, 1.15vw, 1.16rem);
   font-weight: 600;
   line-height: 1.15;
 }
@@ -1484,27 +1488,28 @@ body:has(.about-page) .setterwalls-header.active {
   margin: 0 0 12px;
   color: var(--footer-text);
   font-family: var(--font-hj-serif), Georgia, serif;
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 1.22vw, 1.24rem);
   font-weight: 600;
 }
 
 .site-footer-subheading {
-  margin-top: 28px !important;
+  margin-top: clamp(24px, 3vw, 30px) !important;
 }
 
 .site-footer-block {
-  padding-top: 24px;
-  margin-top: 24px;
+  padding-top: clamp(18px, 2.5vw, 24px);
+  margin-top: clamp(18px, 2.5vw, 24px);
   border-top: 1px solid var(--footer-border);
 }
 
 .site-footer-list {
   display: grid;
-  gap: 12px;
+  gap: clamp(9px, 1.4vw, 12px);
   padding: 0;
   margin: 0;
   color: var(--footer-muted);
-  font-size: 0.9rem;
+  font-size: clamp(0.88rem, 0.95vw, 0.94rem);
+  line-height: 1.5;
   list-style: none;
 }
 
@@ -1527,11 +1532,23 @@ body:has(.about-page) .setterwalls-header.active {
 
 .site-footer-socials {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-footer-socials a {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  transition:
+    color 180ms ease;
 }
 
 .site-footer-socials svg {
   display: block;
+  width: 20px;
+  height: 20px;
   fill: currentColor;
 }
 
@@ -1582,8 +1599,21 @@ body:has(.about-page) .setterwalls-header.active {
 
 .partner-logo-footer {
   width: auto;
-  height: 48px;
+  height: clamp(32px, 4vw, 48px);
   max-width: 100%;
+}
+
+.site-footer-partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.site-footer-partner-link {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
 }
 
 .partner-logo:hover,
@@ -1675,6 +1705,14 @@ body:has(.about-page) .setterwalls-header.active {
   .site-footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .site-footer-grid {
+    gap: 40px 34px;
+  }
+
+  .site-footer-about {
+    max-width: 42ch;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1730,14 +1768,12 @@ body:has(.about-page) .setterwalls-header.active {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     max-width: 100%;
     margin-top: clamp(16px, 4svh, 26px);
-    border-top: 0;
-    border-bottom: 0;
+    border: 0;
   }
 
   .hero-stat {
     padding: 0 5px;
-    border-right: 0;
-    border-bottom: 0;
+    border: 0;
     text-align: left;
   }
 
@@ -1746,11 +1782,11 @@ body:has(.about-page) .setterwalls-header.active {
   }
 
   .hero-stat:nth-child(2n) {
-    border-right: 0;
+    border: 0;
   }
 
   .hero-stat:last-child {
-    border-right: 0;
+    border: 0;
   }
 
   .hero-stat dt {
@@ -1917,6 +1953,55 @@ body:has(.about-page) .setterwalls-header.active {
     flex-direction: column;
     margin-top: 42px;
   }
+
+  .site-footer-inner {
+    padding-top: 58px;
+    padding-bottom: 76px;
+  }
+
+  .site-footer-grid {
+    gap: 38px;
+  }
+
+  .site-footer-logo {
+    width: 88px;
+  }
+
+  .site-footer-about {
+    max-width: none;
+    margin-top: 18px;
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+
+  .site-footer h2 {
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .site-footer-block {
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+
+  .site-footer-list {
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+
+  .site-footer-list a {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+  }
+
+  .site-footer-socials {
+    gap: 10px;
+  }
+
+  .partner-logo-footer {
+    height: 36px;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1962,8 +2047,7 @@ body:has(.about-page) .setterwalls-header.active {
 
   .hero-stat {
     padding: 0 4px;
-    border-right: 0;
-    border-bottom: 0;
+    border: 0;
   }
 
   .hero-stat + .hero-stat {
@@ -2130,7 +2214,38 @@ body:has(.about-page) .setterwalls-header.active {
   }
 
   .site-footer-grid {
-    gap: 34px;
+    gap: 32px;
+  }
+
+  .site-footer-logo {
+    width: 76px;
+  }
+
+  .site-footer-about,
+  .site-footer-list,
+  .site-footer-muted {
+    font-size: 0.86rem;
+  }
+
+  .site-footer h2 {
+    font-size: 0.96rem;
+  }
+
+  .site-footer h3 {
+    font-size: 1.08rem;
+  }
+
+  .site-footer-socials a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .partner-logo-footer {
+    height: 30px;
+  }
+
+  .site-footer-partners {
+    gap: 12px;
   }
 }
 
