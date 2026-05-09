@@ -97,7 +97,6 @@ export default function CareerPage() {
 
       <section className={styles.calloutSection}>
         <div className={styles.callout}>
-          <p className="eyebrow">HandelsJuristerna</p>
           <h2>Praktisk affärsjuridik i ett sammanhang byggt för studenter.</h2>
           <p>
             Du får ta ansvar tidigt, arbeta nära klienter och utvecklas
