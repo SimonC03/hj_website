@@ -10,7 +10,7 @@ const stats = [
   { label: "Språk", value: 8 },
 ];
 
-const animationDuration = 1800;
+const animationDuration = 3600;
 
 export function HeroStats() {
   const [progress, setProgress] = useState(0);
