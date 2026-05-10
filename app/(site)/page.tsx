@@ -16,7 +16,6 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          poster="/images/hero.jpg"
           preload="metadata"
         >
           <source src="/images/AdobeStock_177928586.mov" />
