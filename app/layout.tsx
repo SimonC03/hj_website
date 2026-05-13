@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import { createPageMetadata, siteUrl } from "@/app/lib/seo";
+import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { createPageMetadata, siteUrl } from "@/app/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -94,6 +95,14 @@ export default function RootLayout({
         <SpeedInsights />
         <Analytics />
       </body>
+      <Script
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="2ba106e4-0ca0-4625-a008-02a1341f804a"
+        data-blockingmode="auto"
+        strategy="beforeInteractive"
+        type="text/javascript"
+      />
     </html>
   );
 }
