@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ContactForm } from "@/app/components/contact-form";
 import { HeroStats } from "@/app/components/hero-stats";
 import { MainPartnersSection } from "@/app/components/main-partners-section";
-import { clientLogos, firm, practiceAreas } from "@/app/data/site";
+import { clientLogos, homePage, practiceAreas } from "@/app/data/site";
 
 export default function HomePage() {
   return (
@@ -18,25 +18,28 @@ export default function HomePage() {
           playsInline
           preload="metadata"
         >
-          <source src="/images/AdobeStock_177928586.mov" />
+          <source src={homePage.hero.video} />
         </video>
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
           <h1>
-            <span className="hero-title-line">Sveriges största</span>
-            <span className="hero-title-line">studentdrivna juristbyrå</span>
+            {homePage.hero.titleLines.map((line) => (
+              <span className="hero-title-line" key={line}>
+                {line}
+              </span>
+            ))}
           </h1>
           <p className="preamble">
-            HandelsJuristerna är en juristbyrå driven av juriststudenter från
-            Handelshögskolan vid Göteborgs universitet <br className="desktop-break" />
-            Vi gör juridiken lättillgänglig för företag och privatpersoner.
+            {homePage.hero.preambleBeforeBreak}{" "}
+            <br className="desktop-break" />
+            {homePage.hero.preambleAfterBreak}
           </p>
           <HeroStats />
         </div>
       </section>
 
-      <section className="client-marquee-section" aria-label="Tidigare kunder">
-        <div className="client-marquee" aria-label="Tidigare kunder">
+      <section className="client-marquee-section" aria-label={homePage.clients.ariaLabel}>
+        <div className="client-marquee" aria-label={homePage.clients.ariaLabel}>
           {[0, 1].map((loop) => (
             <div
               className="client-marquee-track"
@@ -62,27 +65,23 @@ export default function HomePage() {
         <div className="wrapper content-module_width-medium">
           <figure className="content-module_thumbnail">
             <Image
-              alt="HandelsJuristerna"
+              alt={homePage.about.imageAlt}
               className="responsive-img"
               height={800}
-              src="https://handelsjuristerna.se/beta/wp-content/uploads/2021/02/IMG_0715.jpg"
+              src={homePage.about.image}
               width={1200}
             />
           </figure>
           <div className="content-module_wrapper">
-            <h2 className="content-module_title section-title">Om oss</h2>
+            <h2 className="content-module_title section-title">{homePage.about.title}</h2>
             <div className="content-module_content article-text text-flow">
               <p className="preamble-large">
-                Som Sveriges största studentdrivna juristbyrå bistår vi
-                företag, organisationer och privatpersoner med kvalificerad
-                juridisk rådgivning. Med stark akademisk förankring och ett
-                nära samarbete utvecklar vi lösningar som är tydliga,
-                tillgängliga och hållbara.
+                {homePage.about.text}
               </p>
             </div>
             <footer className="content-module_footer">
-              <Link className="button button-primary" href="/om-oss">
-                Om byrån
+              <Link className="button button-primary" href={homePage.about.buttonHref}>
+                {homePage.about.buttonLabel}
               </Link>
             </footer>
           </div>
@@ -101,12 +100,11 @@ export default function HomePage() {
               className="content-module_title section-title"
               id="expertise-title"
             >
-              Expertisområden
+              {homePage.expertise.title}
             </h2>
             <div className="content-module_content article-text text-flow">
               <p className="preamble-large">
-                Vi hjälper företag, organisationer och privatpersoner med
-                tydlig juridisk rådgivning inom våra centrala områden.
+                {homePage.expertise.text}
               </p>
             </div>
           </div>
@@ -116,14 +114,14 @@ export default function HomePage() {
           {practiceAreas.map((area) => (
             <Link
               className="expertise-item"
-              href="/expertis"
+              href={homePage.expertise.href}
               key={area.title}
-              aria-label={`Läs mer om ${area.title}`}
+              aria-label={`${homePage.expertise.readMoreLabel} om ${area.title}`}
             >
               <h3>{area.title}</h3>
               <p>{area.description}</p>
               <span className="expertise-read-more" aria-hidden="true">
-                Läs mer
+                {homePage.expertise.readMoreLabel}
               </span>
             </Link>
           ))}
@@ -133,27 +131,21 @@ export default function HomePage() {
       <section className="section contact-band">
         <div className="section-inner contact-grid">
           <div>
-            <h2>Kontakta oss</h2>
-            <p>Ring, maila eller fyll i formuläret.</p>
+            <h2>{homePage.contact.title}</h2>
+            <p>{homePage.contact.text}</p>
             <dl className="contact-details">
-              <div>
-                <dt>Adress</dt>
-                <dd>{firm.address}</dd>
-              </div>
-              <div>
-                <dt>E-post</dt>
-                <dd>
-                  <a href={`mailto:${firm.email}`}>{firm.email}</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Telefon</dt>
-                <dd>
-                  <a href={`tel:${firm.phone.replaceAll(" ", "")}`}>
-                    {firm.phone}
-                  </a>
-                </dd>
-              </div>
+              {homePage.contact.details.map((detail) => (
+                <div key={detail.label}>
+                  <dt>{detail.label}</dt>
+                  <dd>
+                    {detail.href ? (
+                      <a href={detail.href}>{detail.value}</a>
+                    ) : (
+                      detail.value
+                    )}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
 

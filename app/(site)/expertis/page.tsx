@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
+import { expertisePage } from "@/app/data/site";
 import { createPageMetadata } from "@/app/lib/seo";
 import { PriceList } from "./price-list";
 import styles from "./page.module.css";
 
-export const metadata: Metadata = createPageMetadata({
-  title: "Juridiska tjänster och priser",
-  description:
-    "Se HandelsJuristernas juridiska tjänster, expertisområden och fasta från-priser för företag, organisationer och privatpersoner.",
-  path: "/expertis",
-  keywords: [
-    "juridiska tjänster",
-    "fasta priser juridik",
-    "avtal jurist",
-    "familjerätt",
-    "bostadsjuridik",
-  ],
-});
+export const metadata: Metadata = createPageMetadata(expertisePage.metadata);
 
 export default function ExpertisePage() {
   return (
@@ -23,12 +12,10 @@ export default function ExpertisePage() {
       <section className={styles.hero}>
         <div className={`section-inner ${styles.heroInner}`}>
           <h1>
-            Vår expertis
+            {expertisePage.hero.title}
           </h1>
           <p>
-            Affärsjuridik handlar om mer än lagrum. Vi hjälper företag och
-            organisationer att navigera möjligheter, risker och beslut med
-            tydlig rådgivning och transparenta från-priser.
+            {expertisePage.hero.text}
           </p>
         </div>
       </section>

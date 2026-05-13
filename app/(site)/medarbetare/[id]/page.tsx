@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { firm } from "@/app/data/site";
+import { employeeProfilePage } from "@/app/data/site";
 import { employees, findEmployeeById, getEmployeeId } from "@/app/data/people";
 import { createPageMetadata } from "@/app/lib/seo";
 import styles from "./page.module.css";
@@ -21,7 +21,7 @@ function hasItems(items?: string[]) {
 
 function ValueList({ items }: { items?: string[] }) {
   if (!hasItems(items)) {
-    return <p className={styles.emptyValue}>-</p>;
+    return <p className={styles.emptyValue}>{employeeProfilePage.emptyValue}</p>;
   }
 
   return (
@@ -35,7 +35,7 @@ function ValueList({ items }: { items?: string[] }) {
 
 function TagList({ items }: { items?: string[] }) {
   if (!hasItems(items)) {
-    return <p className={styles.emptyValue}>-</p>;
+    return <p className={styles.emptyValue}>{employeeProfilePage.emptyValue}</p>;
   }
 
   return (
@@ -73,21 +73,16 @@ export async function generateMetadata({ params }: EmployeePageProps): Promise<M
   const person = findEmployeeById(id);
 
   if (!person) {
-    return createPageMetadata({
-      title: "Medarbetare",
-      description:
-        "Möt HandelsJuristernas jurister och juridiska konsulter från Handelshögskolan vid Göteborgs universitet.",
-      path: "/medarbetare",
-    });
+    return createPageMetadata(employeeProfilePage.fallbackMetadata);
   }
 
   const path = `/medarbetare/${getEmployeeId(person)}`;
 
   return createPageMetadata({
     title: `${person.name}, ${person.title}`,
-    description: `Kontaktuppgifter till ${person.name}, ${person.title} på ${firm.displayName}, en juristbyrå i Göteborg.`,
+    description: `Kontaktuppgifter till ${person.name}, ${person.title} ${employeeProfilePage.metadataDescriptionSuffix}`,
     path,
-    keywords: [person.name, person.title, "medarbetare juristbyrå"],
+    keywords: [person.name, person.title, employeeProfilePage.metadataKeyword],
   });
 }
 
@@ -105,7 +100,7 @@ export default async function EmployeePage({ params }: EmployeePageProps) {
         <header className={styles.header}>
           <div className={styles.headerImage}>
             <Link className={styles.imageBackLink} href="/medarbetare">
-              Tillbaka
+              {employeeProfilePage.backLabel}
             </Link>
             <Image
               alt={person.name}
@@ -118,14 +113,14 @@ export default async function EmployeePage({ params }: EmployeePageProps) {
           </div>
 
           <div className={styles.headerContent}>
-            <p className={styles.eyebrow}>Medarbetare</p>
+            <p className={styles.eyebrow}>{employeeProfilePage.eyebrow}</p>
             <h1 className={styles.name}>{person.name}</h1>
             <p className={styles.title}>{person.title}</p>
 
             <hr className={styles.rule} />
 
             <div className={styles.contactBlock}>
-              <h2 className={styles.profileDetailTitle}>Kontakt</h2>
+              <h2 className={styles.profileDetailTitle}>{employeeProfilePage.contactTitle}</h2>
               <div className={styles.contactList}>
                 <a className={styles.infoLink} href={`mailto:${person.email}`}>
                   {person.email}
@@ -142,7 +137,7 @@ export default async function EmployeePage({ params }: EmployeePageProps) {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  Besök profil
+                  {employeeProfilePage.profileUrlLabel}
                 </a>
               ) : null}
               </div>
@@ -151,15 +146,15 @@ export default async function EmployeePage({ params }: EmployeePageProps) {
             <hr className={styles.rule} />
 
             <div className={styles.profileDetails}>
-              <DetailField title="Språk">
+              <DetailField title={employeeProfilePage.detailTitles.languages}>
                 <ValueList items={person.languages} />
               </DetailField>
 
-              <DetailField title="Utbildning">
+              <DetailField title={employeeProfilePage.detailTitles.education}>
                 <ValueList items={person.education} />
               </DetailField>
 
-              <DetailField title="Specialområden">
+              <DetailField title={employeeProfilePage.detailTitles.specialAreas}>
                 <TagList items={person.specialAreas} />
               </DetailField>
             </div>

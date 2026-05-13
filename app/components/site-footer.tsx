@@ -1,48 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { legalTerms } from "@/app/data/site";
-
-type Office = {
-  city: string;
-  address: string[];
-  phone: string;
-  email: string;
-};
-
-export const footerData = {
-  brandName: "HandelsJuristerna",
-  aboutText:
-    "HandelsJuristerna är en juristbyrå driven av juriststudenter från Handelshögskolan vid Göteborgs universitet. Vår vision är att vara den flexibla och okomplicerade byrån som gör juridiken lättillgänglig för såväl företag som privatpersoner.",
-  copyrightYear: new Date().getFullYear(),
-  socials: {
-    linkedin: "https://www.linkedin.com/company/handelsjuristerna/",
-    instagram: "https://www.instagram.com/handelsjuristerna/",
-    facebook: "https://www.facebook.com/handelsjuristerna/",
-  },
-  navItems: [
-    { label: "Expertisområden", href: "/expertis" },
-    { label: "Medarbetare", href: "/medarbetare" },
-    { label: "Karriär", href: "/karriar" },
-    { label: "Om oss", href: "/om-oss" },
-    { label: "Kontakt", href: "/kontakt" },
-    legalTerms,
-  ],
-  office: {
-    city: "Göteborg",
-    address: ["Viktoriagatan 9", "411 25 Göteborg"],
-    phone: "031 – 20 27 20",
-    email: "info@handelsjuristerna.se",
-  } satisfies Office,
-  partners: [
-    {
-      name: "CMS Wistrand",
-      logo: "/partners/CMS_W.png",
-      href: "https://cms.law/en/swe/",
-      width: 728,
-      height: 83,
-    },
-  ],
-};
+import { footerData, partnersSection, siteAssets } from "@/app/data/site";
 
 function FooterLogo() {
   return (
@@ -51,7 +9,7 @@ function FooterLogo() {
       alt={`${footerData.brandName} Logotyp`}
       className="site-footer-logo"
       height="120"
-      src="/logos/emblem.png"
+      src={siteAssets.logos.footerEmblem}
       style={{ objectFit: "contain" }}
       width="120"
     />
@@ -208,7 +166,7 @@ export function SiteFooter() {
                 </div>
               ) : (
                 <p className="site-footer-muted">
-                  Lägg till samarbetspartners här.
+                  {partnersSection.emptyText}
                 </p>
               )}
             </div>

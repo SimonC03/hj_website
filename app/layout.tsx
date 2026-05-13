@@ -4,6 +4,7 @@ import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { createPageMetadata, siteUrl } from "@/app/lib/seo";
+import { cookiebot, firm, siteAssets, siteMetadata } from "@/app/data/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -19,46 +20,38 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const homeTitle = "HandelsJuristerna | Juristbyrå i Göteborg";
-const homeDescription =
-  "Sveriges största studentdrivna juristbyrå. HandelsJuristerna erbjuder juridisk rådgivning för företag, organisationer och privatpersoner i Göteborg.";
-
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: homeTitle,
-    description: homeDescription,
+    title: siteMetadata.homeTitle,
+    description: siteMetadata.homeDescription,
     path: "/",
-    keywords: [
-      "jurist Göteborg",
-      "juridisk hjälp Göteborg",
-      "juridiska tjänster",
-    ],
+    keywords: siteMetadata.homeKeywords,
   }),
   metadataBase: new URL(siteUrl),
-  applicationName: "HandelsJuristerna",
+  applicationName: firm.displayName,
   manifest: "/site.webmanifest",
   title: {
-    default: homeTitle,
-    template: "%s | HandelsJuristerna",
+    default: siteMetadata.homeTitle,
+    template: `%s | ${firm.displayName}`,
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: siteAssets.icons.faviconSvg, type: "image/svg+xml" },
+      { url: siteAssets.icons.faviconPng, sizes: "96x96", type: "image/png" },
     ],
-    shortcut: [{ url: "/favicon.ico" }],
+    shortcut: [{ url: siteAssets.icons.faviconIco }],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: siteAssets.icons.appleTouchIcon, sizes: "180x180", type: "image/png" },
     ],
   },
   appleWebApp: {
     capable: true,
-    title: "HandelsJuristerna",
+    title: firm.displayName,
     statusBarStyle: "default",
   },
-  authors: [{ name: "HandelsJuristerna", url: siteUrl }],
-  creator: "HandelsJuristerna",
-  publisher: "HandelsJuristerna",
+  authors: [{ name: firm.displayName, url: siteUrl }],
+  creator: firm.displayName,
+  publisher: firm.displayName,
   category: "Juridiska tjänster",
   robots: {
     index: true,
@@ -91,18 +84,18 @@ export default function RootLayout({
       className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Script
+          id={cookiebot.id}
+          src={cookiebot.src}
+          data-cbid={cookiebot.cbid}
+          data-blockingmode={cookiebot.blockingMode}
+          strategy="beforeInteractive"
+          type="text/javascript"
+        />
         {children}
         <SpeedInsights />
         <Analytics />
       </body>
-      <Script
-        id="Cookiebot"
-        src="https://consent.cookiebot.com/uc.js"
-        data-cbid="2ba106e4-0ca0-4625-a008-02a1341f804a"
-        data-blockingmode="auto"
-        strategy="beforeInteractive"
-        type="text/javascript"
-      />
     </html>
   );
 }

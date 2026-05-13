@@ -1,7 +1,7 @@
 "use server";
 
 import nodemailer from "nodemailer";
-import { firm, legalTerms } from "@/app/data/site";
+import { contactFormContent, firm, legalTerms } from "@/app/data/site";
 import { siteUrl } from "@/app/lib/seo";
 
 export type ContactFormState = {
@@ -38,40 +38,40 @@ export async function sendContactForm(
   _previousState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
-  const honeypot = getValue(formData, "website");
+  const honeypot = getValue(formData, contactFormContent.fieldNames.honeypot);
 
   if (honeypot) {
     return {
       status: "success",
-      message: "Tack, ditt meddelande har skickats.",
+      message: contactFormContent.validationMessages.success,
     };
   }
 
-  const name = getValue(formData, "Namn");
-  const phone = getValue(formData, "Telefonnummer");
-  const email = getValue(formData, "Epostadress");
-  const message = getValue(formData, "Meddelande");
-  const acceptedTerms = formData.get("Villkor") === "on";
+  const name = getValue(formData, contactFormContent.fieldNames.name);
+  const phone = getValue(formData, contactFormContent.fieldNames.phone);
+  const email = getValue(formData, contactFormContent.fieldNames.email);
+  const message = getValue(formData, contactFormContent.fieldNames.message);
+  const acceptedTerms =
+    formData.get(contactFormContent.fieldNames.terms) === "on";
 
   if (!name || !phone || !email || !message || !acceptedTerms) {
     return {
       status: "error",
-      message: "Fyll i alla obligatoriska fält.",
+      message: contactFormContent.validationMessages.required,
     };
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return {
       status: "error",
-      message: "Ange en giltig e-postadress.",
+      message: contactFormContent.validationMessages.invalidEmail,
     };
   }
 
   if (!hasSmtpConfig()) {
     return {
       status: "error",
-      message:
-        "Formuläret är inte kopplat till en e-postserver ännu. Lägg till SMTP-inställningar i miljön.",
+      message: contactFormContent.validationMessages.missingSmtp,
     };
   }
 
@@ -85,29 +85,29 @@ export async function sendContactForm(
     },
   });
 
-  const subject = `Nytt ärende från ${name}`;
+  const subject = `${contactFormContent.email.subjectPrefix} ${name}`;
   const termsUrl = new URL(legalTerms.href, siteUrl).toString();
   const text = [
-    "Nytt ärende via hemsidan",
+    contactFormContent.email.heading,
     "",
-    `Namn: ${name}`,
-    `Telefonnummer: ${phone}`,
-    `E-post: ${email}`,
-    `${legalTerms.label}: Accepterade`,
-    `Länk till ${legalTerms.label.toLowerCase()}: ${termsUrl}`,
+    `${contactFormContent.fields.name}: ${name}`,
+    `${contactFormContent.fields.phone}: ${phone}`,
+    `${contactFormContent.fields.email}: ${email}`,
+    `${legalTerms.label}: ${contactFormContent.email.acceptedTerms}`,
+    `${contactFormContent.email.termsLinkPrefix} ${legalTerms.label.toLowerCase()}: ${termsUrl}`,
     "",
-    "Meddelande:",
+    `${contactFormContent.fields.message}:`,
     message,
   ].join("\n");
 
   const html = `
-    <h2>Nytt ärende via hemsidan</h2>
-    <p><strong>Namn:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Telefonnummer:</strong> ${escapeHtml(phone)}</p>
-    <p><strong>E-post:</strong> ${escapeHtml(email)}</p>
-    <p><strong>${escapeHtml(legalTerms.label)}:</strong> Accepterade</p>
+    <h2>${escapeHtml(contactFormContent.email.heading)}</h2>
+    <p><strong>${escapeHtml(contactFormContent.fields.name)}:</strong> ${escapeHtml(name)}</p>
+    <p><strong>${escapeHtml(contactFormContent.fields.phone)}:</strong> ${escapeHtml(phone)}</p>
+    <p><strong>${escapeHtml(contactFormContent.fields.email)}:</strong> ${escapeHtml(email)}</p>
+    <p><strong>${escapeHtml(legalTerms.label)}:</strong> ${escapeHtml(contactFormContent.email.acceptedTerms)}</p>
     <p><a href="${escapeHtml(termsUrl)}">${escapeHtml(legalTerms.label)}</a></p>
-    <p><strong>Meddelande:</strong></p>
+    <p><strong>${escapeHtml(contactFormContent.fields.message)}:</strong></p>
     <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
   `;
 
@@ -123,14 +123,14 @@ export async function sendContactForm(
 
     return {
       status: "success",
-      message: "Tack, ditt meddelande har skickats.",
+      message: contactFormContent.validationMessages.success,
     };
   } catch (error) {
     console.error("Failed to send contact form email", error);
 
     return {
       status: "error",
-      message: "Meddelandet kunde inte skickas. Försök igen senare.",
+      message: contactFormContent.validationMessages.sendError,
     };
   }
 }

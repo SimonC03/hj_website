@@ -1,23 +1,14 @@
 import type { Metadata } from "next";
-import { firm } from "@/app/data/site";
+import { firm, siteAssets, siteMetadata } from "@/app/data/site";
 
-export const siteUrl = "https://handelsjuristerna.se";
+export const siteUrl = firm.url;
 
 const siteName = firm.displayName;
 
-const defaultKeywords = [
-  "juristbyrå",
-  "juristbyrå Göteborg",
-  "juridisk rådgivning",
-  "studentdriven juristbyrå",
-  "HandelsJuristerna",
-  "affärsjuridik",
-  "avtalsrätt",
-  "bolagsrätt",
-];
+const defaultKeywords = siteMetadata.defaultKeywords;
 
 const defaultImage = {
-  url: "/web-app-manifest-512x512.png",
+  url: siteAssets.icons.defaultOpenGraph,
   width: 512,
   height: 512,
   alt: `${siteName} ikon`,

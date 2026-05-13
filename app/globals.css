@@ -104,6 +104,10 @@ canvas {
   max-width: 100%;
 }
 
+main {
+  min-width: 0;
+}
+
 button,
 input,
 textarea,

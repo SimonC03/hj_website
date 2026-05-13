@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { footerData } from "@/app/components/site-footer";
+import { footerData, partnersSection } from "@/app/data/site";
 
 export function MainPartnersSection() {
   return (
@@ -13,13 +13,11 @@ export function MainPartnersSection() {
             className="content-module_title section-title"
             id="main-partners-title"
           >
-            Huvudpartners
+            {partnersSection.title}
           </h2>
           <div className="content-module_content article-text text-flow">
             <p className="preamble-large">
-              Våra huvudpartners stärker HandelsJuristerna genom långsiktiga
-              samarbeten, kunskapsutbyte och möjligheter för våra medarbetare
-              att möta näringslivet på riktigt.
+              {partnersSection.intro}
             </p>
           </div>
         </div>

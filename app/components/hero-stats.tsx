@@ -1,14 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const stats = [
-  { label: "Medarbetare", value: 26 },
-  { label: "År i branschen", value: 13 },
-  { label: "Nöjda kunder", value: 250 },
-  { label: "Specialistområden", value: 13 },
-  { label: "Språk", value: 8 },
-];
+import { heroStats } from "@/app/data/site";
 
 const animationDuration = 3600;
 
@@ -53,7 +46,7 @@ export function HeroStats() {
 
   return (
     <dl className="hero-stats" aria-label="Statistiköverblick">
-      {stats.map((stat) => {
+      {heroStats.map((stat) => {
         const displayedValue = Math.round(stat.value * progress);
 
         return (

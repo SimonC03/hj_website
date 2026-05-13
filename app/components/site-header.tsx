@@ -3,31 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { firm } from "@/app/data/site";
+import { firm, navigation, siteAssets } from "@/app/data/site";
 
 type MenuItem = {
   label: string;
   href: string;
 };
 
-const quickNav = [
-  { label: "EXPERTISOMRÅDEN", href: "/expertis" },
-  { label: "MEDARBETARE", href: "/medarbetare" },
-  { label: "KARRIÄR", href: "/karriar" },
-];
-
-const mainMenu: MenuItem[] = [
-  { label: "Startsida", href: "/" },
-  { label: "Expertisområden", href: "/expertis" },
-  { label: "Medarbetare", href: "/medarbetare" },
-  { label: "Karriär", href: "/karriar" },
-  { label: "Om oss", href: "/om-oss" },
-  { label: "Kontakt", href: "/kontakt" },
-];
-
 function HeaderLogo({
   className = "",
-  src = "/logos/full-white.png",
+  src = siteAssets.logos.headerLight,
 }: {
   className?: string;
   src?: string;
@@ -86,8 +71,8 @@ export function SiteHeader() {
     pathname === "/om-oss";
   const headerLogoSrc =
     usesLightHeader && !isScrolled && !isMenuOpen
-      ? "/logos/full-black.png"
-      : "/logos/full-white.png";
+      ? siteAssets.logos.headerDark
+      : siteAssets.logos.headerLight;
 
   const closeAll = () => {
     setIsMenuOpen(false);
@@ -141,9 +126,12 @@ export function SiteHeader() {
           </Link>
 
           <div className="menu-right">
-            <nav className="handelsjuristerna-navbar" aria-label="Snabbnavigation">
+            <nav
+              className="handelsjuristerna-navbar"
+              aria-label={navigation.labels.quickNavAria}
+            >
               <ul className="navbar-nav">
-                {quickNav.map((item) => (
+                {navigation.quickNav.map((item) => (
                   <li className="menu-item" key={item.href}>
                     <Link href={item.href}>{item.label}</Link>
                   </li>
@@ -153,7 +141,11 @@ export function SiteHeader() {
 
             <button
               aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? "Stäng meny" : "Öppna meny"}
+              aria-label={
+                isMenuOpen
+                  ? navigation.labels.closeMenu
+                  : navigation.labels.openMenu
+              }
               className="hamburger-toggle"
               onClick={toggleMenu}
               type="button"
@@ -166,15 +158,15 @@ export function SiteHeader() {
         </div>
 
         <nav
-          aria-label="Huvudmeny"
+          aria-label={navigation.labels.mainMenuAria}
           className={`mobile-menu${isMenuOpen ? " open" : ""}`}
         >
           <Link className="logotype logotype--mobile" href="/" onClick={closeAll}>
-            <HeaderLogo src="/logos/full-white.png" />
+            <HeaderLogo src={siteAssets.logos.headerLight} />
           </Link>
 
           <MenuList
-            items={mainMenu}
+            items={navigation.mainMenu as MenuItem[]}
             onNavigate={closeAll}
             pathname={pathname}
           />

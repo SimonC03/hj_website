@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { Check, ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
-import styles from "./page.module.css";
+import { expertisePage } from "@/app/data/site";
 import {
   pricingCategories,
   pricingServices,
   type PricingCategoryId,
-} from "./pricing-data";
+} from "@/app/data/pricing";
+import styles from "./page.module.css";
 
 export function PriceList() {
   const [activeCategory, setActiveCategory] = useState<PricingCategoryId>("all");
@@ -23,13 +24,13 @@ export function PriceList() {
 
   const activeCategoryLabel =
     activeCategory === "all"
-      ? "Visar hela prislistan"
+      ? expertisePage.priceList.allCategoryLabel
       : pricingCategories.find((category) => category.id === activeCategory)?.title;
 
   return (
-    <section aria-label="Prislista" className={`section ${styles.pricingSection}`}>
+    <section aria-label={expertisePage.priceList.ariaLabel} className={`section ${styles.pricingSection}`}>
       <div className="section-inner">
-        <div aria-label="Prisområden" className={styles.categoryTabs} role="tablist">
+        <div aria-label={expertisePage.priceList.categoryAriaLabel} className={styles.categoryTabs} role="tablist">
           {pricingCategories.map((category) => {
             const isActive = category.id === activeCategory;
 
@@ -54,7 +55,7 @@ export function PriceList() {
 
         <div className={styles.servicesShell} id="pricing-services" role="tabpanel">
           <div className={styles.servicesMeta}>
-            <span>{services.length} tjänster</span>
+            <span>{services.length} {expertisePage.priceList.serviceCountLabel}</span>
             <span>{activeCategoryLabel}</span>
           </div>
 
@@ -85,9 +86,9 @@ export function PriceList() {
                   {service.note && <p className={styles.serviceNote}>{service.note}</p>}
 
                   <div className={styles.serviceFooter}>
-                    <span>Betalning enligt överenskommelse</span>
-                    <Link className="button button-primary" href="/kontakt">
-                      Boka konsultation
+                    <span>{expertisePage.priceList.paymentText}</span>
+                    <Link className="button button-primary" href={expertisePage.priceList.consultationHref}>
+                      {expertisePage.priceList.consultationLabel}
                     </Link>
                   </div>
                 </div>

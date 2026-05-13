@@ -6,7 +6,7 @@ import {
   sendContactForm,
   type ContactFormState,
 } from "@/app/actions/contact";
-import { legalTerms } from "@/app/data/site";
+import { contactFormContent, legalTerms } from "@/app/data/site";
 
 const initialState: ContactFormState = {
   status: "idle",
@@ -33,33 +33,38 @@ export function ContactForm() {
       ref={formRef}
     >
       <label className="contact-honeypot">
-        <span>Webbplats</span>
-        <input autoComplete="off" name="website" tabIndex={-1} type="text" />
+        <span>{contactFormContent.honeypotLabel}</span>
+        <input
+          autoComplete="off"
+          name={contactFormContent.fieldNames.honeypot}
+          tabIndex={-1}
+          type="text"
+        />
       </label>
 
       <div className="contact-form-grid">
         <label className="contact-field contact-field-full">
-          <span>Namn</span>
-          <input id="contact-name" name="Namn" required type="text" />
+          <span>{contactFormContent.fields.name}</span>
+          <input id="contact-name" name={contactFormContent.fieldNames.name} required type="text" />
         </label>
 
         <label className="contact-field">
-          <span>Telefonnummer</span>
-          <input id="contact-phone" name="Telefonnummer" required type="tel" />
+          <span>{contactFormContent.fields.phone}</span>
+          <input id="contact-phone" name={contactFormContent.fieldNames.phone} required type="tel" />
         </label>
 
         <label className="contact-field">
-          <span>E-post</span>
-          <input id="contact-email" name="Epostadress" required type="email" />
+          <span>{contactFormContent.fields.email}</span>
+          <input id="contact-email" name={contactFormContent.fieldNames.email} required type="email" />
         </label>
 
         <label className="contact-field contact-field-full">
-          <span>Meddelande</span>
+          <span>{contactFormContent.fields.message}</span>
           <textarea
             id="contact-message"
             maxLength={5000}
-            name="Meddelande"
-            placeholder="Skriv ditt meddelande här..."
+            name={contactFormContent.fieldNames.message}
+            placeholder={contactFormContent.messagePlaceholder}
             required
             rows={7}
           />
@@ -67,13 +72,13 @@ export function ContactForm() {
       </div>
 
       <label className="contact-consent">
-        <input name="Villkor" required type="checkbox" />
+        <input name={contactFormContent.fieldNames.terms} required type="checkbox" />
         <span>
-          Jag accepterar HandelsJuristernas{" "}
+          {contactFormContent.consentBeforeLink}{" "}
           <a href={legalTerms.href} target="_blank" rel="noopener noreferrer">
-            allmänna villkor
+            {legalTerms.label.toLowerCase()}
           </a>{" "}
-          och att uppgifterna behandlas för att hantera min förfrågan.
+          {contactFormContent.consentAfterLink}
         </span>
       </label>
 
@@ -83,7 +88,7 @@ export function ContactForm() {
           disabled={pending}
           type="submit"
         >
-          {pending ? "Skickar..." : "Skicka meddelande"}
+          {pending ? contactFormContent.pendingLabel : contactFormContent.submitLabel}
           <ArrowRight aria-hidden="true" size={18} strokeWidth={2} />
         </button>
       </div>
